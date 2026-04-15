@@ -31,12 +31,15 @@
         .ai-avatar { background: var(--gradient); }
         .user-avatar { background: #5436da; }
         .content { font-size: 15px; line-height: 1.5; white-space: pre-wrap; overflow-wrap: anywhere; }
+
+        /* Stop Button Style */
+        #stopBtn { display: none; background: #c62828; color: white; border: none; border-radius: 50%; width: 30px; height: 30px; cursor: pointer; font-size: 12px; margin-left: 10px; justify-content: center; align-items: center; }
     </style>
 </head>
 <body>
 
     <div id="login-overlay">
-        <h1 style="color: white; margin-bottom: 20px;">Sign In To Your Gmail To Start!</h1>
+        <h1 style="color: white; margin-bottom: 20px;">Start By Login!</h1>
         <div id="g_id_onload"
              data-client_id="962541317340-h2tef7ghacll2okk8latem18qbsrs3hd.apps.googleusercontent.com"
              data-callback="unlockNow">
@@ -55,7 +58,8 @@
             <div id="status" style="font-size: 10px; color: #555; margin-bottom: 4px;">System Ready</div>
             <div class="input-box">
                 <input type="text" id="userInput" placeholder="Waiting for engine..." disabled>
-                <button onclick="window.ask()" style="background:none; border:none; color:#b87cfc; cursor:pointer; font-size:20px;">➤</button>
+                <button id="sendBtn" onclick="window.ask()" style="background:none; border:none; color:#b87cfc; cursor:pointer; font-size:20px;">➤</button>
+                <button id="stopBtn" onclick="window.stopAI()">■</button>
             </div>
         </div>
     </div>
@@ -75,15 +79,15 @@
     let engine;
     let currentId = null;
     let chats = JSON.parse(localStorage.getItem('my_ai_chats')) || {};
+    let isGenerating = false;
 
     window.addEventListener('auth-ready', async () => {
         const status = document.getElementById("status");
         refreshSidebar();
         try {
-            // Reverting to 1B model for stability and speed
             const model = "Llama-3.2-1B-Instruct-q4f16_1-MLC"; 
             engine = await CreateMLCEngine(model, {
-                initProgressCallback: (p) => { status.innerText = `Optimizing: ${Math.round(p.progress * 100)}%`; }
+                initProgressCallback: (p) => { status.innerText = `Optimizing Brain: ${Math.round(p.progress * 100)}%`; }
             });
             status.innerText = "Stable Mode Active";
             document.getElementById("userInput").disabled = false;
@@ -93,10 +97,25 @@
         }
     });
 
+    window.stopAI = () => {
+        if (engine && isGenerating) {
+            engine.interruptGenerate(); // Stops the AI stream
+            isGenerating = false;
+            toggleButtons(false);
+            console.log("AI Generation Stopped by User");
+        }
+    };
+
+    function toggleButtons(generating) {
+        isGenerating = generating;
+        document.getElementById("stopBtn").style.display = generating ? "flex" : "none";
+        document.getElementById("sendBtn").style.display = generating ? "none" : "block";
+    }
+
     window.ask = async () => {
         const input = document.getElementById("userInput");
         const val = input.value.trim();
-        if (!val || !engine) return;
+        if (!val || !engine || isGenerating) return;
 
         if (!currentId) window.startNewChat();
         
@@ -108,10 +127,11 @@
         input.value = "";
         render();
         refreshSidebar();
+        toggleButtons(true);
 
         try {
             const chunks = await engine.chat.completions.create({ 
-                messages: [{ role: "system", content: "Short, smart, helpful." }, ...chats[currentId].history], 
+                messages: [{ role: "system", content: "Smart, concise assistant." }, ...chats[currentId].history], 
                 stream: true 
             });
             
@@ -119,16 +139,20 @@
             const row = addRowUI("", "ai");
 
             for await (const chunk of chunks) {
+                if (!isGenerating) break; // Exit loop if stopped
                 fullAiResponse += chunk.choices[0]?.delta?.content || "";
                 row.querySelector(".content").innerText = fullAiResponse;
                 document.getElementById('chat-window').scrollTop = document.getElementById('chat-window').scrollHeight;
             }
-            chats[currentId].history.push({ role: "assistant", content: fullAiResponse });
-            save();
+            
+            if (fullAiResponse) {
+                chats[currentId].history.push({ role: "assistant", content: fullAiResponse });
+                save();
+            }
         } catch (err) {
-            console.error("Crash prevented:", err);
-            status.innerText = "Memory Error - Refreshing...";
-            location.reload(); 
+            console.error("Stream interrupted or failed:", err);
+        } finally {
+            toggleButtons(false);
         }
     };
 
@@ -140,6 +164,7 @@
     };
 
     window.selectChat = (id) => {
+        if (isGenerating) window.stopAI();
         currentId = id;
         render();
         refreshSidebar();
@@ -167,6 +192,7 @@
         if (currentId && chats[currentId]) {
             chats[currentId].history.forEach(m => addRowUI(m.content, m.role === 'user' ? 'user' : 'ai'));
         }
+        win.scrollTop = win.scrollHeight;
     }
 
     function addRowUI(t, type) {
