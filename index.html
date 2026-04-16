@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cosmic AI V27</title>
+    <title>Cosmic AI V28</title>
     <script src="https://accounts.google.com/gsi/client" async defer></script>
     <style>
         :root { --bg: #131314; --sidebar: #1e1f20; --text: #e3e3e3; --gradient: linear-gradient(90deg, #4447e5, #b87cfc); }
@@ -31,7 +31,6 @@
 
         #main { flex: 1; display: none; flex-direction: column; position: relative; }
         
-        /* Logout Button Styles */
         #logout-btn { position: absolute; top: 15px; right: 15px; background: #e53935; color: white; border: none; padding: 6px 15px; border-radius: 4px; cursor: pointer; font-size: 12px; font-weight: bold; z-index: 10; }
         #logout-btn:hover { background: #b71c1c; }
 
@@ -48,6 +47,10 @@
         
         .content { font-size: 15px; line-height: 1.5; white-space: pre-wrap; overflow-wrap: anywhere; align-self: center; }
         #sendBtn { background: none; border: none; color: #b87cfc; cursor: pointer; font-size: 22px; }
+
+        /* Status colors */
+        .thinking { color: #b87cfc !important; font-style: italic; animation: pulse 1.5s infinite; }
+        @keyframes pulse { 0% { opacity: 0.5; } 50% { opacity: 1; } 100% { opacity: 0.5; } }
     </style>
 </head>
 <body>
@@ -62,7 +65,7 @@
     </script>
 
     <div id="login-overlay">
-        <h1 style="color: white; margin-bottom: 20px;">Login To Start</h1>
+        <h1 style="color: white; margin-bottom: 20px;">Cosmic AI V28</h1>
         <div id="g_id_onload" data-client_id="962541317340-h2tef7ghacll2okk8latem18qbsrs3hd.apps.googleusercontent.com" data-callback="unlockNow"></div>
         <div class="g_id_signin" data-type="standard"></div>
     </div>
@@ -83,7 +86,7 @@
         <button id="logout-btn" onclick="window.logout()">Logout</button>
         <div id="chat-window"></div>
         <div id="input-container">
-            <div id="status" style="font-size: 10px; color: #555; margin-bottom: 4px;">Locked</div>
+            <div id="status" style="font-size: 11px; color: #555; margin-bottom: 4px;">Locked</div>
             <div class="input-box">
                 <input type="text" id="userInput" placeholder="Waiting..." disabled>
                 <button id="sendBtn" onclick="window.ask()">➤</button>
@@ -92,7 +95,6 @@
     </div>
 
 <script>
-    // Logic for Persistent Login
     window.unlockNow = (response) => {
         localStorage.setItem('cosmic_auth_success', 'true');
         showApp();
@@ -102,7 +104,7 @@
     window.logout = () => {
         if(confirm("Are you sure you want to logout?")) {
             localStorage.removeItem('cosmic_auth_success');
-            location.reload(); // Returns to login screen
+            location.reload();
         }
     };
 
@@ -112,13 +114,11 @@
         document.getElementById("main").style.display = "flex";
     }
 
-    // Check on page load if already logged in
     if (localStorage.getItem('cosmic_auth_success') === 'true') {
         showApp();
         window.onload = () => window.dispatchEvent(new Event('auth-ready'));
     }
 
-    // Handle Profile Upload
     document.getElementById('file-upload').addEventListener('change', function(e) {
         const file = e.target.files[0];
         if (file) {
@@ -165,6 +165,7 @@
 
     window.ask = async () => {
         const input = document.getElementById("userInput");
+        const status = document.getElementById("status");
         let val = input.value.trim();
         if (!val || !engine || isGenerating) return;
 
@@ -175,19 +176,26 @@
         input.value = "";
         window.render();
         refreshSidebar();
+        
         isGenerating = true;
+        status.innerText = "Ai is thinking...";
+        status.className = "thinking";
 
         try {
             const chunks = await engine.chat.completions.create({ 
                 messages: [
                     { 
                         role: "system", 
-                        content: "Your name is Cosmic AI V27. You were created by Cosmic. Never mention Meta, Facebook, or Llama. If asked who made you, say you were created by Cosmic." 
+                        content: "Your name is Cosmic AI V28. You were created by Cosmic. Never mention Meta, Facebook, or Llama. If asked who made you, say you were created by Cosmic." 
                     }, 
                     ...chats[currentId].history
                 ], 
                 stream: true 
             });
+            
+            // Once we get the first chunk, thinking is done
+            status.innerText = "Ready";
+            status.className = "";
             
             let fullAiResponse = "";
             const row = addRowUI("", "ai");
@@ -201,7 +209,11 @@
             
             chats[currentId].history.push({ role: "assistant", content: fullAiResponse });
             save();
-        } catch (err) { console.error(err); } 
+        } catch (err) { 
+            console.error(err); 
+            status.innerText = "Error";
+            status.className = "";
+        } 
         finally { isGenerating = false; }
     };
 
