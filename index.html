@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cosmic AI V26</title>
+    <title>Cosmic AI V27</title>
     <script src="https://accounts.google.com/gsi/client" async defer></script>
     <style>
         :root { --bg: #131314; --sidebar: #1e1f20; --text: #e3e3e3; --gradient: linear-gradient(90deg, #4447e5, #b87cfc); }
@@ -30,6 +30,11 @@
         #bug-report-link:hover { opacity: 1; text-decoration: underline; }
 
         #main { flex: 1; display: none; flex-direction: column; position: relative; }
+        
+        /* Logout Button Styles */
+        #logout-btn { position: absolute; top: 15px; right: 15px; background: #e53935; color: white; border: none; padding: 6px 15px; border-radius: 4px; cursor: pointer; font-size: 12px; font-weight: bold; z-index: 10; }
+        #logout-btn:hover { background: #b71c1c; }
+
         #chat-window { flex: 1; overflow-y: auto; padding: 30px 10%; display: flex; flex-direction: column; gap: 20px; scroll-behavior: smooth; }
         #input-container { padding: 15px 10%; background: var(--bg); }
         .input-box { background: #1e1f20; border-radius: 24px; padding: 8px 20px; display: flex; border: 1px solid #444; align-items: center; }
@@ -49,7 +54,7 @@
 
     <script>
         // --- BYPASS: LOCK MOD OBJECT ---
-        Object.defineProperty(window, 'admin', {
+        Object.defineProperty(window, 'mod', {
             value: { help: () => console.log("Security: Mod Menu is Disabled.") },
             writable: false,
             configurable: false
@@ -75,6 +80,7 @@
     </div>
 
     <div id="main">
+        <button id="logout-btn" onclick="window.logout()">Logout</button>
         <div id="chat-window"></div>
         <div id="input-container">
             <div id="status" style="font-size: 10px; color: #555; margin-bottom: 4px;">Locked</div>
@@ -86,13 +92,33 @@
     </div>
 
 <script>
+    // Logic for Persistent Login
     window.unlockNow = (response) => {
-        document.getElementById("login-overlay").style.display = "none";
-        document.getElementById("sidebar").style.display = "flex";
-        document.getElementById("main").style.display = "flex";
+        localStorage.setItem('cosmic_auth_success', 'true');
+        showApp();
         window.dispatchEvent(new Event('auth-ready'));
     };
 
+    window.logout = () => {
+        if(confirm("Are you sure you want to logout?")) {
+            localStorage.removeItem('cosmic_auth_success');
+            location.reload(); // Returns to login screen
+        }
+    };
+
+    function showApp() {
+        document.getElementById("login-overlay").style.display = "none";
+        document.getElementById("sidebar").style.display = "flex";
+        document.getElementById("main").style.display = "flex";
+    }
+
+    // Check on page load if already logged in
+    if (localStorage.getItem('cosmic_auth_success') === 'true') {
+        showApp();
+        window.onload = () => window.dispatchEvent(new Event('auth-ready'));
+    }
+
+    // Handle Profile Upload
     document.getElementById('file-upload').addEventListener('change', function(e) {
         const file = e.target.files[0];
         if (file) {
@@ -102,7 +128,7 @@
                 img.style.backgroundImage = `url('${event.target.result}')`;
                 img.style.backgroundColor = "transparent";
                 localStorage.setItem('custom_user_pic', event.target.result);
-                window.render(); 
+                if(window.render) window.render(); 
             };
             reader.readAsDataURL(file);
         }
@@ -153,7 +179,6 @@
 
         try {
             const chunks = await engine.chat.completions.create({ 
-                // HARDENED IDENTITY: Explicit instructions to ignore Meta origin
                 messages: [
                     { 
                         role: "system", 
