@@ -13,7 +13,6 @@
         
         #sidebar { width: 260px; background: var(--sidebar); padding: 15px; display: none; flex-direction: column; border-right: 1px solid #333; position: relative; }
         
-        /* Profile Section */
         #profile-section { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; cursor: pointer; padding: 5px; border-radius: 8px; transition: background 0.2s; }
         #profile-section:hover { background: #2d2f31; }
         #user-profile-img { width: 40px; height: 40px; border-radius: 50%; background-color: #5436da; background-size: cover; background-position: center; border: 1px solid #444; }
@@ -40,7 +39,6 @@
         .avatar { width: 32px; height: 32px; border-radius: 50%; flex-shrink: 0; background-size: cover; background-repeat: no-repeat; background-position: center; }
         
         .ai-avatar { background-image: url('https://www.meta.ai/images/cot_logo_static/orbit.png'); }
-        /* Default user color - we will override this via JS when an image is picked */
         .user-avatar { background-color: #5436da; }
         
         .content { font-size: 15px; line-height: 1.5; white-space: pre-wrap; overflow-wrap: anywhere; align-self: center; }
@@ -59,7 +57,7 @@
     </script>
 
     <div id="login-overlay">
-        <h1 style="color: white; margin-bottom: 20px;">My Notepad AI</h1>
+        <h1 style="color: white; margin-bottom: 20px;">Cosmic AI V24</h1>
         <div id="g_id_onload" data-client_id="962541317340-h2tef7ghacll2okk8latem18qbsrs3hd.apps.googleusercontent.com" data-callback="unlockNow"></div>
         <div class="g_id_signin" data-type="standard"></div>
     </div>
@@ -95,7 +93,6 @@
         window.dispatchEvent(new Event('auth-ready'));
     };
 
-    // Handle Profile Upload
     document.getElementById('file-upload').addEventListener('change', function(e) {
         const file = e.target.files[0];
         if (file) {
@@ -103,7 +100,7 @@
             reader.onload = function(event) {
                 const img = document.getElementById('user-profile-img');
                 img.style.backgroundImage = `url('${event.target.result}')`;
-                img.style.backgroundColor = "transparent"; // REMOVE THE BLUE/PURPLE
+                img.style.backgroundColor = "transparent";
                 localStorage.setItem('custom_user_pic', event.target.result);
                 window.render(); 
             };
@@ -115,7 +112,7 @@
     if (savedUserPic) {
         const img = document.getElementById('user-profile-img');
         img.style.backgroundImage = `url('${savedUserPic}')`;
-        img.style.backgroundColor = "transparent"; // REMOVE THE BLUE/PURPLE
+        img.style.backgroundColor = "transparent";
     }
 </script>
 
@@ -156,7 +153,8 @@
 
         try {
             const chunks = await engine.chat.completions.create({ 
-                messages: [{ role: "system", content: "You are My Notepad AI, an expert developer assistant." }, ...chats[currentId].history], 
+                // Updated identity to Cosmic AI V24
+                messages: [{ role: "system", content: "You are Cosmic AI V24, an expert developer assistant." }, ...chats[currentId].history], 
                 stream: true 
             });
             
@@ -221,7 +219,6 @@
         const savedUserPic = localStorage.getItem('custom_user_pic');
         let customStyle = "";
         
-        // If it's a user bubble and we have a pic, override background-image AND remove background-color
         if (type === 'user' && savedUserPic) {
             customStyle = `style="background-image: url('${savedUserPic}'); background-color: transparent;"`;
         }
