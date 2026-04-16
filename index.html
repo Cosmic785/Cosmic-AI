@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cosmic AI V28</title>
+    <title>Cosmic AI V29</title>
     <script src="https://accounts.google.com/gsi/client" async defer></script>
     <style>
         :root { --bg: #131314; --sidebar: #1e1f20; --text: #e3e3e3; --gradient: linear-gradient(90deg, #4447e5, #b87cfc); }
@@ -48,7 +48,6 @@
         .content { font-size: 15px; line-height: 1.5; white-space: pre-wrap; overflow-wrap: anywhere; align-self: center; }
         #sendBtn { background: none; border: none; color: #b87cfc; cursor: pointer; font-size: 22px; }
 
-        /* Thinking Animation for AI Content */
         .thinking-text { color: #aaa; font-style: italic; animation: pulse 1.5s infinite; }
         @keyframes pulse { 0% { opacity: 0.4; } 50% { opacity: 1; } 100% { opacity: 0.4; } }
     </style>
@@ -56,7 +55,6 @@
 <body>
 
     <script>
-        // --- BYPASS: LOCK MOD OBJECT ---
         Object.defineProperty(window, 'mod', {
             value: { help: () => console.log("Security: Mod Menu is Disabled.") },
             writable: false,
@@ -65,7 +63,7 @@
     </script>
 
     <div id="login-overlay">
-        <h1 style="color: white; margin-bottom: 20px;">Cosmic AI V28</h1>
+        <h1 style="color: white; margin-bottom: 20px;">Cosmic AI V29</h1>
         <div id="g_id_onload" data-client_id="962541317340-h2tef7ghacll2okk8latem18qbsrs3hd.apps.googleusercontent.com" data-callback="unlockNow"></div>
         <div class="g_id_signin" data-type="standard"></div>
     </div>
@@ -178,7 +176,6 @@
         
         isGenerating = true;
 
-        // CREATE THE AI THINKING BUBBLE IMMEDIATELY
         const row = addRowUI("Ai is thinking...", "ai");
         const contentDiv = row.querySelector(".content");
         contentDiv.classList.add("thinking-text");
@@ -188,7 +185,10 @@
                 messages: [
                     { 
                         role: "system", 
-                        content: "Your name is Cosmic AI V28. You were created by Cosmic. Never mention Meta, Facebook, or Llama. If asked who made you, say you were created by Cosmic." 
+                        content: `Your name is Cosmic AI V29. You were created by Cosmic. 
+                        If asked "Who made you?", say: "I was created by Cosmic."
+                        If asked "What is your website?" or "Where can I find you?", say: "My official website is https://github.com/Cosmic785/my-local-ai."
+                        Never mention Meta, Facebook, or Llama.` 
                     }, 
                     ...chats[currentId].history
                 ], 
@@ -200,7 +200,6 @@
 
             for await (const chunk of chunks) {
                 if (firstChunk) {
-                    // Remove thinking animation once text starts coming in
                     contentDiv.classList.remove("thinking-text");
                     contentDiv.innerText = "";
                     firstChunk = false;
