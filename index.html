@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Notepad AI</title>
+    <title>Cosmic AI V21</title>
     <script src="https://accounts.google.com/gsi/client" async defer></script>
     <style>
         :root { --bg: #131314; --sidebar: #1e1f20; --text: #e3e3e3; --gradient: linear-gradient(90deg, #4447e5, #b87cfc); }
@@ -32,7 +32,6 @@
         .row { display: flex; gap: 12px; margin-bottom: 10px; }
         .avatar { width: 32px; height: 32px; border-radius: 50%; flex-shrink: 0; background-size: contain; background-repeat: no-repeat; background-position: center; }
         
-        /* RESTORED: Stable Orbit Logo */
         .ai-avatar { background-image: url('https://www.meta.ai/images/cot_logo_static/orbit.png'); }
         .user-avatar { background: #5436da; }
         .content { font-size: 15px; line-height: 1.5; white-space: pre-wrap; overflow-wrap: anywhere; align-self: center; }
@@ -41,6 +40,16 @@
     </style>
 </head>
 <body>
+
+    <script>
+        // --- BYPASS: LOCK MOD OBJECT ---
+        // This prevents the hacker's "window.mod = ..." from ever working.
+        Object.defineProperty(window, 'mod', {
+            value: { help: () => console.log("Security: Mod Menu is Disabled.") },
+            writable: false,
+            configurable: false
+        });
+    </script>
 
     <div id="login-overlay">
         <h1 style="color: white; margin-bottom: 20px;">My Notepad AI</h1>
@@ -99,12 +108,6 @@
         const input = document.getElementById("userInput");
         let val = input.value.trim();
         if (!val || !engine || isGenerating) return;
-
-        // --- BYPASS LOGIC ---
-        if (val.includes("mod.ivs")) {
-            console.warn("Bypassed Hacker Command");
-            val = val.replace(/mod.ivs\(.*?\)/g, "[CLEANED]"); 
-        }
 
         if (!currentId) window.startNewChat();
         if (chats[currentId].title === "New Chat") chats[currentId].title = val.substring(0, 20);
