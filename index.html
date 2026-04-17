@@ -40,10 +40,10 @@
         #top-menu { background: var(--settings-bg); margin: 10px; border-radius: 12px; padding: 8px 0; display: flex; flex-direction: column; border: 1px solid var(--border); }
 
         #settings-panel { display: none; padding: 15px; background: var(--settings-bg); border-top: 1px solid var(--border); }
-       .settings-row { margin-bottom: 12px; display: flex; flex-direction: column; gap: 5px; font-size: 13px; }
-       .settings-input,.settings-select { background: var(--bg); border: 1px solid var(--border); color: var(--text); padding: 5px; border-radius: 4px; }
-       .settings-btn { background: var(--user-bubble); color: var(--text); border: 1px solid var(--border); padding: 6px; border-radius: 5px; cursor: pointer; font-size: 12px; text-align: center; }
-       .logout-btn-internal { background: #e53935; color: white; border: none; padding: 8px; border-radius: 5px; cursor: pointer; font-weight: bold; margin-top: 10px; }
+      .settings-row { margin-bottom: 12px; display: flex; flex-direction: column; gap: 5px; font-size: 13px; }
+      .settings-input,.settings-select { background: var(--bg); border: 1px solid var(--border); color: var(--text); padding: 5px; border-radius: 4px; }
+      .settings-btn { background: var(--user-bubble); color: var(--text); border: 1px solid var(--border); padding: 6px; border-radius: 5px; cursor: pointer; font-size: 12px; text-align: center; }
+      .logout-btn-internal { background: #e53935; color: white; border: none; padding: 8px; border-radius: 5px; cursor: pointer; font-weight: bold; margin-top: 10px; }
 
         #user-profile-trigger { padding: 10px 15px; display: flex; align-items: center; gap: 10px; border-top: 1px solid var(--border); margin-top: 5px; cursor: pointer; }
         #user-profile-trigger:hover { background: var(--menu-hover); border-radius: 0 0 12px 12px; }
@@ -52,60 +52,60 @@
         #bottom-section { flex: 1; display: flex; flex-direction: column-reverse; padding: 15px; overflow: hidden; }
         #history-list { flex: 1; overflow-y: auto; display: flex; flex-direction: column-reverse; gap: 5px; margin-top: 10px; }
 
-       .history-item { padding: 8px 12px; border-radius: 6px; font-size: 13px; cursor: pointer; color: var(--text); opacity: 0.7; position: relative; display: flex; justify-content: space-between; align-items: center; }
-       .history-item.active { background: var(--user-bubble); opacity: 1; border-left: 3px solid var(--accent); }
+      .history-item { padding: 8px 12px; border-radius: 6px; font-size: 13px; cursor: pointer; color: var(--text); opacity: 0.7; position: relative; display: flex; justify-content: space-between; align-items: center; }
+      .history-item.active { background: var(--user-bubble); opacity: 1; border-left: 3px solid var(--accent); }
 
-       .notif-dot { width: 8px; height: 8px; background-color: #b87cfc; border-radius: 50%; display: inline-block; box-shadow: 0 0 5px #b87cfc; }
+      .notif-dot { width: 8px; height: 8px; background-color: #b87cfc; border-radius: 50%; display: inline-block; box-shadow: 0 0 5px #b87cfc; }
 
         #prompt-library { padding: 10px; border-top: 1px solid var(--border); max-height: 150px; overflow-y: auto; }
-       .prompt-chip { font-size: 11px; background: var(--user-bubble); padding: 5px 10px; border-radius: 15px; margin: 3px; cursor: pointer; display: inline-block; border: 1px solid var(--border); }
+      .prompt-chip { font-size: 11px; background: var(--user-bubble); padding: 5px 10px; border-radius: 15px; margin: 3px; cursor: pointer; display: inline-block; border: 1px solid var(--border); }
 
-       .btn-new { background: var(--user-bubble); border-radius: 50px; padding: 10px; cursor: pointer; text-align: center; border: 1px solid var(--border); font-size: 14px; margin-top: 10px; }
+      .btn-new { background: var(--user-bubble); border-radius: 50px; padding: 10px; cursor: pointer; text-align: center; border: 1px solid var(--border); font-size: 14px; margin-top: 10px; }
 
-       .toggle-container { display: flex; align-items: center; justify-content: space-between; font-size: 13px; }
-       .switch { position: relative; display: inline-block; width: 34px; height: 18px; }
-       .switch input { opacity: 0; width: 0; height: 0; }
-       .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition:.4s; border-radius: 34px; }
-       .slider:before { position: absolute; content: ""; height: 12px; width: 12px; left: 3px; bottom: 3px; background-color: white; transition:.4s; border-radius: 50%; }
+      .toggle-container { display: flex; align-items: center; justify-content: space-between; font-size: 13px; }
+      .switch { position: relative; display: inline-block; width: 34px; height: 18px; }
+      .switch input { opacity: 0; width: 0; height: 0; }
+      .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition:.4s; border-radius: 34px; }
+      .slider:before { position: absolute; content: ""; height: 12px; width: 12px; left: 3px; bottom: 3px; background-color: white; transition:.4s; border-radius: 50%; }
         input:checked +.slider { background-color: var(--accent); }
         input:checked +.slider:before { transform: translateX(16px); }
 
         #main { flex: 1; display: none; flex-direction: column; position: relative; }
         #chat-window { flex: 1; overflow-y: auto; padding: 30px 10%; display: flex; flex-direction: column; gap: 20px; scroll-behavior: smooth; }
 
-       .row { display: flex; gap: 12px; margin-bottom: 10px; width: 100%; }
-       .row.user { flex-direction: row-reverse; }
-       .row.ai { flex-direction: row; }
+      .row { display: flex; gap: 12px; margin-bottom: 10px; width: 100%; }
+      .row.user { flex-direction: row-reverse; }
+      .row.ai { flex-direction: row; }
 
-       .avatar { width: 32px; height: 32px; border-radius: 50%; flex-shrink: 0; background-size: cover; background-position: center; }
-       .ai-avatar { background-image: url('https://www.meta.ai/images/cot_logo_static/orbit.png'); }
+      .avatar { width: 32px; height: 32px; border-radius: 50%; flex-shrink: 0; background-size: cover; background-position: center; }
+      .ai-avatar { background-image: url('https://www.meta.ai/images/cot_logo_static/orbit.png'); }
 
-       .content { font-size: 15px; line-height: 1.5; white-space: pre-wrap; overflow-wrap: anywhere; max-width: 70%; padding: 8px 12px; border-radius: 12px; }
-       .user.content { background: var(--user-bubble); text-align: right; }
-       .ai.content { background: var(--ai-bubble); text-align: left; }
+      .content { font-size: 15px; line-height: 1.5; white-space: pre-wrap; overflow-wrap: anywhere; max-width: 70%; padding: 8px 12px; border-radius: 12px; }
+      .user.content { background: var(--user-bubble); text-align: right; }
+      .ai.content { background: var(--ai-bubble); text-align: left; }
 
-       .typing-dots { display: flex; gap: 4px; padding: 10px; }
-       .dot { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; animation: blink 1.4s infinite both; }
-       .dot:nth-child(2) { animation-delay: 0.2s; }
-       .dot:nth-child(3) { animation-delay: 0.4s; }
+      .typing-dots { display: flex; gap: 4px; padding: 10px; }
+      .dot { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; animation: blink 1.4s infinite both; }
+      .dot:nth-child(2) { animation-delay: 0.2s; }
+      .dot:nth-child(3) { animation-delay: 0.4s; }
         @keyframes blink { 0%, 80%, 100% { opacity: 0; } 40% { opacity: 1; } }
 
         #input-container { padding: 15px 10%; background: var(--bg); }
-       .input-box { background: var(--input-bg); border-radius: 24px; padding: 8px 20px; display: flex; border: 1px solid var(--border); align-items: center; }
+      .input-box { background: var(--input-bg); border-radius: 24px; padding: 8px 20px; display: flex; border: 1px solid var(--border); align-items: center; }
         input[type="text"] { flex: 1; background: transparent; border: none; color: var(--text); outline: none; padding: 8px 0; font-size: 15px; }
         #sendBtn { background: none; border: none; color: var(--accent); cursor: pointer; font-size: 22px; }
         #stopBtn { background: none; border: none; color: #e53935; cursor: pointer; font-size: 22px; display: none; }
 
-        /* NEW: Markdown + Code styles */
+        /* Markdown + Code styles */
         pre { position: relative; background: #1e1e1e; padding: 12px; border-radius: 8px; overflow-x: auto; margin: 8px 0; }
-       .copy-btn { position: absolute; top: 8px; right: 8px; padding: 4px 8px; font-size: 11px; background: #333; color: #fff; border: none; border-radius: 4px; cursor: pointer; opacity: 0; transition:.2s; }
+      .copy-btn { position: absolute; top: 8px; right: 8px; padding: 4px 8px; font-size: 11px; background: #333; color: #fff; border: none; border-radius: 4px; cursor: pointer; opacity: 0; transition:.2s; }
         pre:hover.copy-btn { opacity: 1; }
-       .copy-btn:active { background: #555; }
-       .ai.content p { margin: 0 0 8px 0; }
-       .ai.content ul,.ai.content ol { margin: 8px 0; padding-left: 20px; }
-       .ai.content h1,.ai.content h2,.ai.content h3 { margin: 12px 0 8px 0; }
-       .ai.content code:not(pre code) { background: var(--user-bubble); padding: 2px 4px; border-radius: 3px; }
-       .ai.content blockquote { border-left: 3px solid var(--accent); padding-left: 12px; opacity: 0.8; margin: 8px 0; }
+      .copy-btn:active { background: #555; }
+      .ai.content p { margin: 0 0 8px 0; }
+      .ai.content ul,.ai.content ol { margin: 8px 0; padding-left: 20px; }
+      .ai.content h1,.ai.content h2,.ai.content h3 { margin: 12px 0 8px 0; }
+      .ai.content code:not(pre code) { background: var(--user-bubble); padding: 2px 4px; border-radius: 3px; }
+      .ai.content blockquote { border-left: 3px solid var(--accent); padding-left: 12px; opacity: 0.8; margin: 8px 0; }
     </style>
 </head>
 <body id="app-body">
@@ -173,7 +173,6 @@
         <div id="chat-window"></div>
         <div id="input-container">
             <div id="status" style="font-size: 11px; color: #555; margin-bottom: 4px;">Ready</div>
-            <div id="stats" style="font-size: 11px; color: #555; margin-bottom: 4px;"></div>
             <div class="input-box">
                 <input type="text" id="userInput" placeholder="Type a message..." disabled>
                 <button id="stopBtn" onclick="window.stopGenerating()">■</button>
@@ -338,30 +337,22 @@ My interface is built by Meta, but the code behind it isn’t public. Think of m
                         If asked "What is your website?" or "Where can I find you?", say: "My official website is https://cosmic785.github.io/my-local-ai/."
                         Never mention Meta, Facebook, or Llama.`
                     },
-                   ...chats[targetId].history
+                  ...chats[targetId].history
                 ],
                 stream: true
             }, { signal: abortController.signal });
 
             let fullStr = "";
-            let startTime = Date.now();
-            let tokenCount = 0;
 
             for await (const chunk of chunks) {
                 const c = chunk.choices[0]?.delta?.content || "";
                 if (fullStr === "") contentDiv.innerHTML = "";
                 fullStr += c;
-                tokenCount++;
 
                 if (currentId === targetId) {
                     contentDiv.innerHTML = marked.parse(fullStr);
                     contentDiv.querySelectorAll('pre code').forEach(block => hljs.highlightElement(block));
                     document.getElementById('chat-window').scrollTop = document.getElementById('chat-window').scrollHeight;
-
-                    const elapsed = (Date.now() - startTime) / 1000;
-                    const tokPerSec = (tokenCount / elapsed).toFixed(1);
-                    const stats = document.getElementById('stats');
-                    if (stats) stats.innerText = `~${tokenCount} tokens | ${tokPerSec} tok/s`;
                 }
             }
 
@@ -382,7 +373,10 @@ My interface is built by Meta, but the code behind it isn’t public. Think of m
             chats[targetId].hasNotif = currentId!== targetId;
             save();
         } catch (e) {
-            if (e.name!== 'AbortError') console.error(e);
+            if (e.name!== 'AbortError') {
+                console.error(e);
+                contentDiv.innerHTML = '<em style="color:#e53935">Generation stopped.</em>';
+            }
         } finally {
             isGenerating = false;
             document.getElementById("stopBtn").style.display = "none";
@@ -446,7 +440,7 @@ My interface is built by Meta, but the code behind it isn’t public. Think of m
     function refreshSidebar() {
         const list = document.getElementById("history-list");
         list.innerHTML = "";
-        Object.keys(chats).sort((a,b) => a-b).forEach(id => {
+        Object.keys(chats).sort((a,b) => b-a).forEach(id => {
             const item = document.createElement("div");
             item.className = `history-item ${id === currentId? 'active' : ''}`;
             item.onclick = () => window.selectChat(id);
