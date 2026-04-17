@@ -25,23 +25,23 @@
         #top-menu { background: var(--settings-bg); margin: 10px; border-radius: 12px; padding: 8px 0; display: flex; flex-direction: column; border: 1px solid var(--border); }
         .menu-item { display: flex; align-items: center; gap: 12px; padding: 10px 15px; cursor: pointer; font-size: 14px; transition: background 0.2s; }
         .menu-item:hover { background: var(--menu-hover); }
-        .menu-icon { font-size: 18px; width: 20px; text-align: center; }
         
-        /* Profile Clickable Area */
+        /* Profile Trigger */
         #user-profile-trigger { padding: 10px 15px; display: flex; align-items: center; gap: 10px; border-top: 1px solid var(--border); margin-top: 5px; cursor: pointer; transition: background 0.2s; }
         #user-profile-trigger:hover { background: var(--menu-hover); border-radius: 0 0 12px 12px; }
         #user-profile-img { width: 32px; height: 32px; border-radius: 50%; background-color: #5436da; background-size: cover; background-position: center; }
 
-        /* Settings Panel (Hidden by default) */
-        #settings-panel { display: none; padding: 15px; background: var(--settings-bg); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+        /* Settings Panel */
+        #settings-panel { display: none; padding: 15px; background: var(--settings-bg); border-top: 1px solid var(--border); }
         .settings-row { margin-bottom: 12px; display: flex; flex-direction: column; gap: 5px; font-size: 13px; }
         .settings-input { background: var(--bg); border: 1px solid var(--border); color: var(--text); padding: 5px; border-radius: 4px; }
+        .settings-btn { background: var(--user-bubble); color: var(--text); border: 1px solid var(--border); padding: 6px; border-radius: 5px; cursor: pointer; font-size: 12px; text-align: center; }
         .logout-btn-internal { background: #e53935; color: white; border: none; padding: 8px; border-radius: 5px; cursor: pointer; font-weight: bold; margin-top: 10px; }
 
         /* BOTTOM SECTION */
         #bottom-section { flex: 1; display: flex; flex-direction: column-reverse; padding: 15px; overflow: hidden; }
         #history-list { flex: 1; overflow-y: auto; display: flex; flex-direction: column-reverse; gap: 5px; margin-top: 10px; }
-        .history-item { padding: 8px 12px; border-radius: 6px; font-size: 13px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: var(--text); opacity: 0.7; }
+        .history-item { padding: 8px 12px; border-radius: 6px; font-size: 13px; cursor: pointer; color: var(--text); opacity: 0.7; transition: background 0.2s; }
         .history-item.active { background: var(--user-bubble); opacity: 1; border-left: 3px solid #b87cfc; }
         .btn-new { background: var(--user-bubble); border-radius: 50px; padding: 10px; cursor: pointer; text-align: center; border: 1px solid var(--border); font-size: 14px; margin-top: 10px; }
 
@@ -88,18 +88,16 @@
 
     <div id="sidebar">
         <div id="top-menu">
-            <div class="menu-item" onclick="document.getElementById('file-upload').click()">
-                <span class="menu-icon">🖼️</span> <span>Upload Profile Pic</span>
-                <input type="file" id="file-upload" style="display:none" accept="image/*">
-            </div>
-            <div class="menu-item">
-                <span class="menu-icon">⌨️</span> <span>Keyboard shortcuts</span>
-            </div>
-            
             <div id="settings-panel">
                 <div class="settings-row">
                     <label>Username:</label>
                     <input type="text" id="username-input" class="settings-input" placeholder="Enter name..." onchange="window.updateUsername(this.value)">
+                </div>
+                <div class="settings-row">
+                    <div class="settings-btn" onclick="document.getElementById('file-upload').click()">
+                        🖼️ Change Profile Picture
+                    </div>
+                    <input type="file" id="file-upload" style="display:none" accept="image/*">
                 </div>
                 <div class="settings-row">
                     <div class="toggle-container">
@@ -154,7 +152,6 @@
         localStorage.setItem('light_mode', isLight);
     };
 
-    // Load saved name
     const savedName = localStorage.getItem('cosmic_user_name');
     if (savedName) {
         document.getElementById('display-name').innerText = savedName;
