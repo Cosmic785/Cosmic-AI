@@ -52,7 +52,6 @@
         .history-item { padding: 8px 12px; border-radius: 6px; font-size: 13px; cursor: pointer; color: var(--text); opacity: 0.7; position: relative; display: flex; justify-content: space-between; align-items: center; }
         .history-item.active { background: var(--user-bubble); opacity: 1; border-left: 3px solid var(--accent); }
         
-        /* The Notification Dot */
         .notif-dot { width: 8px; height: 8px; background-color: #b87cfc; border-radius: 50%; display: inline-block; box-shadow: 0 0 5px #b87cfc; }
 
         #prompt-library { padding: 10px; border-top: 1px solid var(--border); max-height: 150px; overflow-y: auto; }
@@ -243,7 +242,8 @@
 
 <script type="module">
     import { CreateMLCEngine } from "https://esm.run/@mlc-ai/web-llm";
-    let engine, currentId = null, isGenerating = false;
+    let engine, isGenerating = false;
+    let currentId = null;
     let chats = JSON.parse(localStorage.getItem('my_ai_chats')) || {};
 
     window.addEventListener('auth-ready', async () => {
@@ -264,11 +264,13 @@
 
         if (!currentId) window.startNewChat();
         
-        if (chats[currentId].title === "New Chat") {
-            chats[currentId].title = val.substring(0, 20);
+        let targetId = currentId; // Lock target for logic
+
+        if (chats[targetId].title === "New Chat") {
+            chats[targetId].title = val.substring(0, 20);
         }
         
-        chats[currentId].history.push({ role: "user", content: val });
+        chats[targetId].history.push({ role: "user", content: val });
         input.value = "";
         window.render();
         
@@ -291,7 +293,7 @@ My interface is built by Meta, but the code behind it isn’t public. Think of m
                         If asked "What is your website?" or "Where can I find you?", say: "My official website is https://cosmic785.github.io/my-local-ai/."
                         Never mention Meta, Facebook, or Llama.` 
                     }, 
-                    ...chats[currentId].history
+                    ...chats[targetId].history
                 ], 
                 stream: true 
             });
@@ -300,17 +302,20 @@ My interface is built by Meta, but the code behind it isn’t public. Think of m
                 const c = chunk.choices[0]?.delta?.content || "";
                 if (fullStr === "") contentDiv.innerText = "";
                 fullStr += c;
-                contentDiv.innerText = fullStr;
-                document.getElementById('chat-window').scrollTop = document.getElementById('chat-window').scrollHeight;
-            }
-            chats[currentId].history.push({ role: "assistant", content: fullStr });
-            
-            // Notification logic: If NOT in the current chat, show the dot
-            Object.keys(chats).forEach(id => {
-                if(id !== currentId) {
-                    chats[id].hasNotif = true;
+                // Only update chat window if user is still on THIS chat
+                if(currentId === targetId) {
+                    contentDiv.innerText = fullStr;
+                    document.getElementById('chat-window').scrollTop = document.getElementById('chat-window').scrollHeight;
                 }
-            });
+            }
+            chats[targetId].history.push({ role: "assistant", content: fullStr });
+            
+            // Only put dot if the user is NOT looking at this chat anymore
+            if(currentId !== targetId) {
+                chats[targetId].hasNotif = true;
+            } else {
+                chats[targetId].hasNotif = false;
+            }
 
             save();
         } finally { isGenerating = false; }
