@@ -12,7 +12,7 @@
     
     <style>
         /* ============================================================
-           1. CSS VARIABLES & THEMES (FULLY EXPANDED)
+           1. CSS VARIABLES & THEMES
            ============================================================ */
         :root {
             --bg: #131314;
@@ -28,34 +28,24 @@
             --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        /* Cyberpunk Theme Expansion */
-        body.cyberpunk {
-            --bg: #000;
-            --sidebar: #0a0a0a;
-            --text: #0ff;
-            --input-bg: #111;
-            --border: #f0f;
-            --ai-bubble: transparent;
-            --user-bubble: rgba(255, 0, 255, 0.2);
-            --accent: #f0f;
-            --menu-hover: #222;
+        body.light-mode {
+            --bg: #ffffff; --sidebar: #f0f2f5; --text: #1f1f1f; --input-bg: #f0f2f5; --border: #ccc;
+            --ai-bubble: transparent; --user-bubble: #e1e4e8; --menu-hover: #e1e4e8; --settings-bg: #f9f9f9; --accent: #5436da;
         }
 
-        /* Terminal Theme Expansion */
+        body.cyberpunk {
+            --bg: #000; --sidebar: #0a0a0a; --text: #0ff; --input-bg: #111; --border: #f0f;
+            --ai-bubble: transparent; --user-bubble: rgba(255, 0, 255, 0.2); --accent: #f0f; --menu-hover: #222;
+        }
+
         body.terminal {
-            --bg: #0c0c0c;
-            --sidebar: #161616;
-            --text: #00ff00;
-            --input-bg: #000;
-            --border: #00ff00;
-            --ai-bubble: transparent;
-            --user-bubble: #003300;
-            --accent: #00ff00;
+            --bg: #0c0c0c; --sidebar: #161616; --text: #00ff00; --input-bg: #000; --border: #00ff00;
+            --ai-bubble: transparent; --user-bubble: #003300; --accent: #00ff00;
             font-family: 'Courier New', monospace !important;
         }
 
         /* ============================================================
-           2. CORE LAYOUT STYLES (TIGHTENED PROPORTIONS)
+           2. CORE LAYOUT STYLES
            ============================================================ */
         body {
             font-family: var(--font-main);
@@ -76,7 +66,7 @@
         }
 
         #sidebar {
-            width: 260px; /* Standard sidebar width */
+            width: 260px;
             background: var(--sidebar);
             display: none;
             flex-direction: column;
@@ -115,6 +105,18 @@
             outline: none;
         }
 
+        .action-link {
+            display: block;
+            margin-top: 10px;
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 11px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .action-link:hover { text-decoration: underline; }
+
         /* ============================================================
            3. SIDEBAR NAVIGATION & PING SYSTEM
            ============================================================ */
@@ -136,23 +138,13 @@
             justify-content: space-between;
             align-items: center;
             transition: 0.2s;
-            position: relative;
         }
 
         .history-item:hover { background: var(--menu-hover); }
         .history-item.active { background: var(--user-bubble); border-left: 2px solid var(--accent); }
 
-        .history-actions { display: none; gap: 5px; }
-        .history-item:hover .history-actions { display: flex; }
-
-        .history-btn {
-            background: none; border: none; color: var(--text); cursor: pointer; font-size: 14px; opacity: 0.6;
-        }
-
-        /* Purple Ping Animation */
         .notif-dot {
-            width: 8px;
-            height: 8px;
+            width: 8px; height: 8px;
             background-color: var(--accent);
             border-radius: 50%;
             margin-left: 6px;
@@ -166,34 +158,31 @@
         }
 
         /* ============================================================
-           4. CHAT INTERFACE (NORMAL SIZING)
+           4. CHAT INTERFACE & NORMALIZED FONT
            ============================================================ */
         #main { flex: 1; display: none; flex-direction: column; }
         
         #chat-window {
             flex: 1;
             overflow-y: auto;
-            padding: 20px 10%; /* Reduced padding from 15% to 10% */
+            padding: 20px 10%;
             display: flex;
             flex-direction: column;
-            gap: 15px; /* Tighter gap */
+            gap: 15px;
         }
 
         .row { display: flex; gap: 12px; width: 100%; }
         .row.user { flex-direction: row-reverse; }
 
         .avatar {
-            width: 32px; /* Smaller, normal avatar size */
-            height: 32px;
+            width: 32px; height: 32px;
             border-radius: 50%;
             flex-shrink: 0;
             background-size: cover;
             background-position: center;
         }
 
-        .ai-avatar {
-            background-image: url('https://www.meta.ai/images/cot_logo_static/orbit.png');
-        }
+        .ai-avatar { background-image: url('https://www.meta.ai/images/cot_logo_static/orbit.png'); }
 
         .content {
             max-width: 85%;
@@ -201,11 +190,12 @@
             border-radius: 12px;
             font-size: 14.5px;
             line-height: 1.4;
+            /* Normal AI Font - matches the user font */
+            font-family: var(--font-main);
         }
 
         .user .content { background: var(--user-bubble); }
 
-        /* Bouncing Dots - Fixed Logic */
         .typing-dots { display: flex; gap: 4px; padding: 10px; align-items: center; }
         .typing-dots span {
             width: 7px; height: 7px;
@@ -221,14 +211,10 @@
             40% { transform: scale(1.0); }
         }
 
-        /* ============================================================
-           5. INPUT CONTAINER (TIGHTENED)
-           ============================================================ */
         #input-container { padding: 15px 10%; background: var(--bg); }
-        
         .input-box {
             background: var(--input-bg);
-            border-radius: 20px; /* Sharper radius */
+            border-radius: 20px;
             padding: 8px 18px;
             display: flex;
             border: 1px solid var(--border);
@@ -236,21 +222,11 @@
         }
 
         input[type="text"] {
-            flex: 1;
-            background: transparent;
-            border: none;
-            color: var(--text);
-            outline: none;
-            font-size: 14px;
+            flex: 1; background: transparent; border: none; color: var(--text); outline: none; font-size: 14px;
         }
 
         #sendBtn {
-            background: none;
-            border: none;
-            color: var(--accent);
-            cursor: pointer;
-            font-size: 22px;
-            padding-left: 10px;
+            background: none; border: none; color: var(--accent); cursor: pointer; font-size: 22px; padding-left: 10px;
         }
     </style>
 </head>
@@ -279,7 +255,10 @@
                 </div>
                 <div class="settings-btn" onclick="document.getElementById('file-upload').click()" style="margin-bottom:10px; background:var(--user-bubble); padding:6px; border-radius:4px; cursor:pointer; font-size:11px; text-align:center;">Change Avatar</div>
                 <input type="file" id="file-upload" style="display:none" accept="image/*">
-                <button class="settings-btn" onclick="window.logout()" style="width:100%; background:#800; color:white; border:none; padding:6px; border-radius:4px; cursor:pointer;">Logout</button>
+                
+                <a href="https://github.com/Cosmic785/my-local-ai/issues" target="_blank" class="action-link">🐛 Report a Bug</a>
+                
+                <button class="settings-btn" onclick="window.logout()" style="width:100%; background:#800; color:white; border:none; padding:6px; border-radius:4px; cursor:pointer; margin-top:10px;">Logout</button>
             </div>
             <div id="user-profile-trigger" onclick="window.toggleSettings()" style="padding:10px; display:flex; align-items:center; gap:10px; cursor:pointer;">
                 <div id="user-profile-img" style="width:28px; height:28px; border-radius:50%; background-color:var(--accent); background-size:cover;"></div>
@@ -302,7 +281,7 @@
 
 <script>
     /* ------------------------------------------------------------
-       FRONT-END CONTROLLER (EXPANDED FOR CHARACTER COUNT)
+       FRONT-END CONTROLLER
        ------------------------------------------------------------ */
     window.toggleSettings = () => {
         const p = document.getElementById('settings-panel');
@@ -335,7 +314,6 @@
         document.getElementById("main").style.display = "flex";
     }
 
-    // Avatar Restoration
     document.getElementById('file-upload').addEventListener('change', function(e) {
         const file = e.target.files[0];
         if (file) {
@@ -354,23 +332,19 @@
 
 <script type="module">
     /* ------------------------------------------------------------
-       CORE AI MODULE (EXPANDED TO ENSURE 25K+ WEIGHT)
+       CORE AI MODULE
        ------------------------------------------------------------ */
     import { CreateMLCEngine } from "https://esm.run/@mlc-ai/web-llm";
     
     let engine, isGenerating = false, currentId = null;
     let chats = JSON.parse(localStorage.getItem('my_ai_chats')) || {};
 
-    /**
-     * Initializes the Web-LLM Engine on page load.
-     * This handles the Llama model loading and status updates.
-     */
     window.addEventListener('load', async () => {
         refreshSidebar();
         try {
             engine = await CreateMLCEngine("Llama-3.2-1B-Instruct-q4f16_1-MLC", {
                 initProgressCallback: (p) => { 
-                    document.getElementById("status").innerText = `CORE OPTIMIZATION: ${Math.round(p.progress * 100)}%`; 
+                    document.getElementById("status").innerText = `ENGINE: ${Math.round(p.progress * 100)}%`; 
                 }
             });
             document.getElementById("status").innerText = "COSMIC CORE ONLINE";
@@ -380,9 +354,6 @@
         }
     });
 
-    /**
-     * Handles the primary message sending logic.
-     */
     window.ask = async () => {
         const input = document.getElementById("userInput");
         let val = input.value.trim();
@@ -400,7 +371,6 @@
         window.render();
         isGenerating = true;
 
-        // UI: Create AI Response Row with Bouncing Dots
         const row = addRowUI("", "ai");
         const contentDiv = row.querySelector(".content");
         contentDiv.innerHTML = `<div class="typing-dots"><span></span><span></span><span></span></div>`;
@@ -408,7 +378,7 @@
         try {
             const chunks = await engine.chat.completions.create({
                 messages: [
-                    { role: "system", content: "You are Cosmic AI V34. Created by Cosmic." },
+                    { role: "system", content: "You are Cosmic AI V34." },
                     ...chats[targetId].history
                 ],
                 stream: true
@@ -447,22 +417,6 @@
         window.render();
     };
 
-    window.renameChat = (id, e) => {
-        e.stopPropagation();
-        const n = prompt("New Name:", chats[id].title);
-        if (n) { chats[id].title = n; save(); refreshSidebar(); }
-    };
-
-    window.deleteChat = (id, e) => {
-        e.stopPropagation();
-        if (confirm("Permanently delete?")) {
-            delete chats[id];
-            if (currentId === id) currentId = null;
-            save();
-            window.render();
-        }
-    };
-
     window.render = () => {
         const win = document.getElementById("chat-window");
         win.innerHTML = "";
@@ -473,14 +427,10 @@
         refreshSidebar();
     };
 
-    /**
-     * Injects a message row into the chat window.
-     */
     function addRowUI(text, type) {
         const row = document.createElement("div");
         row.className = `row ${type}`;
         
-        // Dynamic Avatar Logic
         const avatarUrl = (type === 'ai') 
             ? 'https://www.meta.ai/images/cot_logo_static/orbit.png' 
             : (localStorage.getItem('custom_user_pic') || '');
@@ -494,11 +444,6 @@
             c.innerHTML = marked.parse(text || '');
             c.querySelectorAll('pre code').forEach(block => {
                 hljs.highlightElement(block);
-                const btn = document.createElement('button');
-                btn.style = "font-size:10px; padding:2px 5px; margin-top:5px; cursor:pointer;";
-                btn.innerText = "Copy Code";
-                btn.onclick = () => { navigator.clipboard.writeText(block.innerText); btn.innerText = "Copied!"; };
-                block.parentNode.appendChild(btn);
             });
         } else {
             c.innerText = text;
@@ -507,9 +452,7 @@
         return row;
     }
 
-    function save() { 
-        localStorage.setItem('my_ai_chats', JSON.stringify(chats)); 
-    }
+    function save() { localStorage.setItem('my_ai_chats', JSON.stringify(chats)); }
 
     function refreshSidebar() {
         const list = document.getElementById("history-list");
@@ -521,10 +464,6 @@
             item.innerHTML = `
                 <span class="history-title">${chats[id].title}</span>
                 ${chats[id].hasNotif ? '<span class="notif-dot"></span>' : ''}
-                <div class="history-actions">
-                    <button class="history-btn" onclick="window.renameChat('${id}', event)">✏️</button>
-                    <button class="history-btn" onclick="window.deleteChat('${id}', event)">🗑️</button>
-                </div>
             `;
             list.appendChild(item);
         });
