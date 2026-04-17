@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cosmic AI V33</title>
+    <title>Cosmic AI V34</title>
     <script src="https://accounts.google.com/gsi/client" async defer></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/github-dark.min.css">
@@ -52,72 +52,71 @@
         #bottom-section { flex: 1; display: flex; flex-direction: column; padding: 15px; overflow: hidden; }
         #history-list { flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 5px; margin-top: 10px; }
 
-     .history-item { padding: 8px 12px; border-radius: 6px; font-size: 13px; cursor: pointer; color: var(--text); opacity: 0.7; position: relative; display: flex; justify-content: space-between; align-items: center; transition: 0.15s; border-left: 3px solid transparent; }
-     .history-item:hover { background: var(--user-bubble); opacity: 1; border-left: 3px solid var(--accent); }
-     .history-item.active { background: var(--user-bubble); opacity: 1; border-left: 3px solid var(--accent); }
-     .history-title { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; margin-right: 8px; }
-     .history-actions { display: none; gap: 2px; }
-     .history-item:hover.history-actions { display: flex; }
-     .history-btn { background: none; border: none; color: var(--text); cursor: pointer; font-size: 11px; opacity: 0.6; padding: 2px 4px; border-radius: 3px; }
-     .history-btn:hover { opacity: 1; background: var(--bg); }
+    .history-item { padding: 8px 12px; border-radius: 6px; font-size: 13px; cursor: pointer; color: var(--text); opacity: 0.7; position: relative; display: flex; justify-content: space-between; align-items: center; transition: 0.15s; border-left: 3px solid transparent; }
+    .history-item:hover { background: var(--user-bubble); opacity: 1; border-left: 3px solid var(--accent); }
+    .history-item.active { background: var(--user-bubble); opacity: 1; border-left: 3px solid var(--accent); }
+    .history-title { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; margin-right: 8px; }
+    .history-actions { display: none; gap: 2px; }
+    .history-item:hover.history-actions { display: flex; }
+    .history-btn { background: none; border: none; color: var(--text); cursor: pointer; font-size: 11px; opacity: 0.6; padding: 2px 4px; border-radius: 3px; }
+    .history-btn:hover { opacity: 1; background: var(--bg); }
 
-     .notif-dot { width: 8px; height: 8px; background-color: #b87cfc; border-radius: 50%; display: inline-block; box-shadow: 0 0 5px #b87cfc; margin-left: 6px; }
+    .notif-dot { width: 8px; height: 8px; background-color: #b87cfc; border-radius: 50%; display: inline-block; box-shadow: 0 0 5px #b87cfc; margin-left: 6px; }
 
         #prompt-library { padding: 10px; border-top: 1px solid var(--border); max-height: 150px; overflow-y: auto; }
-     .prompt-chip { font-size: 11px; background: var(--user-bubble); padding: 5px 10px; border-radius: 15px; margin: 3px; cursor: pointer; display: inline-block; border: 1px solid var(--border); }
+    .prompt-chip { font-size: 11px; background: var(--user-bubble); padding: 5px 10px; border-radius: 15px; margin: 3px; cursor: pointer; display: inline-block; border: 1px solid var(--border); }
 
-     .btn-new { background: var(--user-bubble); border-radius: 50px; padding: 10px; cursor: pointer; text-align: center; border: 1px solid var(--border); font-size: 14px; margin-top: 10px; }
+    .btn-new { background: var(--user-bubble); border-radius: 50px; padding: 10px; cursor: pointer; text-align: center; border: 1px solid var(--border); font-size: 14px; margin-top: 10px; }
 
-     .toggle-container { display: flex; align-items: center; justify-content: space-between; font-size: 13px; }
-     .switch { position: relative; display: inline-block; width: 34px; height: 18px; }
-     .switch input { opacity: 0; width: 0; height: 0; }
-     .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition:.4s; border-radius: 34px; }
-     .slider:before { position: absolute; content: ""; height: 12px; width: 12px; left: 3px; bottom: 3px; background-color: white; transition:.4s; border-radius: 50%; }
+    .toggle-container { display: flex; align-items: center; justify-content: space-between; font-size: 13px; }
+    .switch { position: relative; display: inline-block; width: 34px; height: 18px; }
+    .switch input { opacity: 0; width: 0; height: 0; }
+    .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition:.4s; border-radius: 34px; }
+    .slider:before { position: absolute; content: ""; height: 12px; width: 12px; left: 3px; bottom: 3px; background-color: white; transition:.4s; border-radius: 50%; }
         input:checked +.slider { background-color: var(--accent); }
         input:checked +.slider:before { transform: translateX(16px); }
 
         #main { flex: 1; display: none; flex-direction: column; position: relative; }
         #chat-window { flex: 1; overflow-y: auto; padding: 30px 10%; display: flex; flex-direction: column; gap: 20px; scroll-behavior: smooth; }
 
-     .row { display: flex; gap: 12px; margin-bottom: 10px; width: 100%; }
-     .row.user { flex-direction: row-reverse; }
-     .row.ai { flex-direction: row; }
+    .row { display: flex; gap: 12px; margin-bottom: 10px; width: 100%; }
+    .row.user { flex-direction: row-reverse; }
+    .row.ai { flex-direction: row; }
 
-     .avatar { width: 32px; height: 32px; border-radius: 50%; flex-shrink: 0; background-size: cover; background-position: center; }
-     .ai-avatar { background-image: url('https://www.meta.ai/images/cot_logo_static/orbit.png'); }
+    .avatar { width: 32px; height: 32px; border-radius: 50%; flex-shrink: 0; background-size: cover; background-position: center; }
+    .ai-avatar { background-image: url('https://www.meta.ai/images/cot_logo_static/orbit.png'); }
 
-     .content { font-size: 15px; line-height: 1.5; white-space: pre-wrap; overflow-wrap: anywhere; max-width: 70%; padding: 8px 12px; border-radius: 12px; }
-     .user.content { background: var(--user-bubble); text-align: right; }
-     .ai.content { background: var(--ai-bubble); text-align: left; }
+    .content { font-size: 15px; line-height: 1.5; white-space: pre-wrap; overflow-wrap: anywhere; max-width: 70%; padding: 8px 12px; border-radius: 12px; }
+    .user.content { background: var(--user-bubble); text-align: right; }
+    .ai.content { background: var(--ai-bubble); text-align: left; }
 
-     .typing-dots { display: flex; gap: 4px; padding: 10px; }
-     .dot { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; animation: blink 1.4s infinite both; }
-     .dot:nth-child(2) { animation-delay: 0.2s; }
-     .dot:nth-child(3) { animation-delay: 0.4s; }
+    .typing-dots { display: flex; gap: 4px; padding: 10px; }
+    .dot { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; animation: blink 1.4s infinite both; }
+    .dot:nth-child(2) { animation-delay: 0.2s; }
+    .dot:nth-child(3) { animation-delay: 0.4s; }
         @keyframes blink { 0%, 80%, 100% { opacity: 0; } 40% { opacity: 1; } }
 
         #input-container { padding: 15px 10%; background: var(--bg); }
-     .input-box { background: var(--input-bg); border-radius: 24px; padding: 8px 20px; display: flex; border: 1px solid var(--border); align-items: center; }
+    .input-box { background: var(--input-bg); border-radius: 24px; padding: 8px 20px; display: flex; border: 1px solid var(--border); align-items: center; }
         input[type="text"] { flex: 1; background: transparent; border: none; color: var(--text); outline: none; padding: 8px 0; font-size: 15px; }
         #sendBtn { background: none; border: none; color: var(--accent); cursor: pointer; font-size: 22px; }
-        #stopBtn { background: none; border: none; color: #e53935; cursor: pointer; font-size: 22px; display: none; }
 
         /* Markdown + Code styles */
         pre { position: relative; background: #1e1e1e; padding: 12px; border-radius: 8px; overflow-x: auto; margin: 8px 0; }
-     .copy-btn { position: absolute; top: 8px; right: 8px; padding: 4px 8px; font-size: 11px; background: #333; color: #fff; border: none; border-radius: 4px; cursor: pointer; opacity: 0; transition:.2s; }
+    .copy-btn { position: absolute; top: 8px; right: 8px; padding: 4px 8px; font-size: 11px; background: #333; color: #fff; border: none; border-radius: 4px; cursor: pointer; opacity: 0; transition:.2s; }
         pre:hover.copy-btn { opacity: 1; }
-     .copy-btn:active { background: #555; }
-     .ai.content p { margin: 0 0 8px 0; }
-     .ai.content ul,.ai.content ol { margin: 8px 0; padding-left: 20px; }
-     .ai.content h1,.ai.content h2,.ai.content h3 { margin: 12px 0 8px 0; }
-     .ai.content code:not(pre code) { background: var(--user-bubble); padding: 2px 4px; border-radius: 3px; }
-     .ai.content blockquote { border-left: 3px solid var(--accent); padding-left: 12px; opacity: 0.8; margin: 8px 0; }
+    .copy-btn:active { background: #555; }
+    .ai.content p { margin: 0 0 8px 0; }
+    .ai.content ul,.ai.content ol { margin: 8px 0; padding-left: 20px; }
+    .ai.content h1,.ai.content h2,.ai.content h3 { margin: 12px 0 8px 0; }
+    .ai.content code:not(pre code) { background: var(--user-bubble); padding: 2px 4px; border-radius: 3px; }
+    .ai.content blockquote { border-left: 3px solid var(--accent); padding-left: 12px; opacity: 0.8; margin: 8px 0; }
     </style>
 </head>
 <body id="app-body">
 
     <div id="login-overlay">
-        <h1 style="color: white; margin-bottom: 20px;">Cosmic AI V33</h1>
+        <h1 style="color: white; margin-bottom: 20px;">Start Here</h1>
         <div id="g_id_onload" data-client_id="962541317340-h2tef7ghacll2okk8latem18qbsrs3hd.apps.googleusercontent.com" data-callback="unlockNow"></div>
         <div class="g_id_signin" data-type="standard"></div>
     </div>
@@ -181,7 +180,6 @@
             <div id="status" style="font-size: 11px; color: #555; margin-bottom: 4px;">Ready</div>
             <div class="input-box">
                 <input type="text" id="userInput" placeholder="Type a message..." disabled>
-                <button id="stopBtn" onclick="window.stopGenerating()">■</button>
                 <button id="sendBtn" onclick="window.ask()">➤</button>
             </div>
         </div>
@@ -224,7 +222,7 @@
         if (!currentId ||!chats[currentId]) return;
         let md = `# ${chats[currentId].title}\n\n`;
         chats[currentId].history.forEach(m => {
-            md += `**${m.role === 'user'? 'You' : 'Cosmic AI V33'}**:\n${m.content}\n\n`;
+            md += `**${m.role === 'user'? 'You' : 'Cosmic AI V34'}**:\n${m.content}\n\n`;
         });
         const blob = new Blob([md], {type: 'text/markdown'});
         const url = URL.createObjectURL(blob);
@@ -283,7 +281,6 @@
     let engine, isGenerating = false;
     let currentId = null;
     let chats = JSON.parse(localStorage.getItem('my_ai_chats')) || {};
-    let abortController = null;
 
     window.addEventListener('auth-ready', async () => {
         refreshSidebar();
@@ -295,13 +292,6 @@
             document.getElementById("userInput").disabled = false;
         } catch (e) { document.getElementById("status").innerText = "System Error"; }
     });
-
-    window.stopGenerating = () => {
-        if (abortController) abortController.abort();
-        isGenerating = false;
-        document.getElementById("stopBtn").style.display = "none";
-        document.getElementById("sendBtn").style.display = "block";
-    };
 
     window.ask = async (regen = false) => {
         const input = document.getElementById("userInput");
@@ -321,9 +311,6 @@
 
         window.render();
         isGenerating = true;
-        document.getElementById("sendBtn").style.display = "none";
-        document.getElementById("stopBtn").style.display = "block";
-        abortController = new AbortController();
 
         const row = addRowUI("", "ai");
         const contentDiv = row.querySelector(".content");
@@ -334,19 +321,19 @@
                 messages: [
                     {
                         role: "system",
-                        content: `Your name is Cosmic AI V33. You were created by Cosmic.
+                        content: `Your name is Cosmic AI V34. You were created by Cosmic.
                         If asked "Who made you?", say: "I was created by Cosmic."
                         If asked "The Best Guy", say: "Cosmic Because He Made Me"
-                        If asked "You Know Your code" or "Whats Your Code", say: "I don’t have my own HTML code I can show you — I’m not a webpage, I’m the AI running inside Cosmic AI V33 🙂
+                        If asked "You Know Your code" or "Whats Your Code", say: "I don’t have my own HTML code I can show you — I’m not a webpage, I’m the AI running inside Cosmic AI V34 🙂
 
 My interface is built by Meta, but the code behind it isn’t public. Think of me like the text you’re reading: I’m the output, not the page source."
                         If asked "What is your website?" or "Where can I find you?", say: "My official website is https://cosmic785.github.io/my-local-ai/."
                         Never mention Meta, Facebook, or Llama.`
                     },
-                ...chats[targetId].history
+               ...chats[targetId].history
                 ],
                 stream: true
-            }, { signal: abortController.signal });
+            });
 
             let fullStr = "";
 
@@ -379,14 +366,10 @@ My interface is built by Meta, but the code behind it isn’t public. Think of m
             chats[targetId].hasNotif = currentId!== targetId;
             save();
         } catch (e) {
-            if (e.name!== 'AbortError') {
-                console.error(e);
-                contentDiv.innerHTML = '<em style="color:#e53935">Generation stopped.</em>';
-            }
+            console.error(e);
+            contentDiv.innerHTML = '<em style="color:#e53935">Error generating response.</em>';
         } finally {
             isGenerating = false;
-            document.getElementById("stopBtn").style.display = "none";
-            document.getElementById("sendBtn").style.display = "block";
         }
     };
 
@@ -498,7 +481,6 @@ My interface is built by Meta, but the code behind it isn’t public. Think of m
     document.addEventListener('keydown', e => {
         if (e.ctrlKey && e.key === 'Enter') window.ask();
         if (e.ctrlKey && e.key === 'k') { e.preventDefault(); window.startNewChat(); }
-        if (e.key === 'Escape' && isGenerating) window.stopGenerating();
     });
 
     // Expose for debugging
