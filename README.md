@@ -71,7 +71,7 @@ Have an idea? Open a [Feature Request](https://github.com/Cosmic785/Cosmic-AI/is
 
 ## 📜 License
 
-MIT License — see [LICENSE](LICENSE) file.
+MIT License
 
 **💼 Commercial use**: DM @cosmic785 first. Personal use = free forever.
 
