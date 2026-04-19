@@ -2,13 +2,15 @@
 
 **Your local, private AI — GUI fixed, light theme rebuilt**
 
-[Live Demo](https://cosmic785.github.io/my-local-ai/) · [Report a Bug](https://github.com/cosmic785/my-local-ai/issues) · [Discord](https://discord.gg/9aRXSCDX4z)
+[Live Demo](https://cosmic785.github.io/my-local-ai/) · [Report a Bug](https://github.com/Cosmic785/my-local-ai) · [Discord](https://discord.gg/9aRXSCDX4z)
 
-Cosmic AI runs entirely in your browser. No data leaves your machine.
+Cosmic AI runs entirely in your browser. No API keys, no tracking, no data leaves your machine.
+
+---
 
 ### ✅ Fixed in V34.1
 
-- **GUI Alignment**: Spacing/overlapping UI is fixed. Everything lines up correctly
+- **GUI Alignment**: Spacing/overlapping UI is fixed. Everything lines up correctly now
 - **Light Theme**: Rebuilt from scratch. Dark/Light toggle works properly
 
 ### ✨ Features
@@ -19,34 +21,36 @@ Cosmic AI runs entirely in your browser. No data leaves your machine.
 - **Custom System Prompts**: Control AI behavior and personality
 - **Multiple Model Support**: Switch between local models
 - **Dark/Light Theme**: Toggle in settings — both themes now stable
-- **100% Local & Private**: No API keys, no tracking, everything saves to your browser
+- **100% Local & Private**: Everything saves to your browser. Your data never leaves your machine
+
+### 🚀 Getting Started
+
+1. Go to: https://cosmic785.github.io/my-local-ai/
+2. Pick a model or use the default
+3. Start chatting. That’s it
+
+No install. No signup. No API keys.
 
 ### ⚠️ Usage Rules
 
 **We are the official Cosmic AI. Do not use fake or modded versions.**
 
-1. **No modding or hacking the app**: Don’t edit the HTML/JS to bypass stuff, inject code, or exploit it. **Don’t hack the HTML**
+1. **No modding or hacking the app**: Don’t edit the HTML/JS to bypass stuff, inject code, or exploit bugs. **Don’t hack the HTML**
 2. **Don’t redistribute malicious builds**: Forking is fine, but don’t share versions with malware/trackers
 3. **No commercial abuse**: Personal use = free forever. Contact me for commercial use
-4. **Report bugs properly**: Use the `Report a Bug` button or Discord. Don’t break things then ask for help
+4. **Report bugs properly**: Use GitHub: https://github.com/Cosmic785/my-local-ai or Discord. Don’t break things then ask for help
 5. **Respect the license**: MIT — give credit if you fork
 
 Breaking the app hurts everyone using it.
 
-⚠️ REPORT A BUG RULES ⚠️
-
-**READ BEFORE SUBMITTING:**
+### 🐛 Found a Bug?
 
 1. **Test on the official version first**: https://cosmic785.github.io/my-local-ai/
-2. **No modding or hacking the app**: Don’t edit the HTML/JS, inject code, or exploit bugs. Don’t hack the HTML.
-3. **No fake reports from modified builds**: If you changed the code, revert it first. We don’t debug modded versions.
-4. **Check for duplicates**: Search existing issues before posting.
+2. **Make sure you’re not on a modded build**: We don’t debug modified versions
+3. **Report it here**: https://github.com/Cosmic785/my-local-ai
+4. **Or join Discord**: https://discord.gg/9aRXSCDX4z
 
-**We are the official Cosmic AI. Do not go to fake or modded versions.**
-
-**Breaking the app isn’t a bug report.** Find a real bug? Report it properly and we’ll fix it.
-
-Hack the app instead of reporting = no support + ban.
+**Don’t hack the HTML.** Find a bug? Report it, don’t exploit it.
 
 ### 🗺️ Roadmap
 
@@ -60,13 +64,16 @@ Hack the app instead of reporting = no support + ban.
 
 MIT © 2026 cosmic785
 
-**Credits:**
-- **Lead Developer**: cosmic785
-- **UI Design & Tester**: Nathan — Designed UI improvements and tested V34.1 fixes
+**Special Thanks:**
+- **Nathan** — For the UI design help and testing V34.1. Your feedback and design eye made this update happen.
+- **The Discord Community** — For reporting bugs, testing builds, and sticking with us through the fixes.
+- **Everyone using Cosmic AI** — Thank you for supporting a free, local, private AI.
 
 ---
+
 **We are the official Cosmic AI.**
 **Do not go to fake or modded versions.** Only use: https://cosmic785.github.io/my-local-ai/
+**Report bugs**: https://github.com/Cosmic785/my-local-ai
 **Official Discord**: https://discord.gg/9aRXSCDX4z
 
 *Your data, your machine, your rules. Don’t hack the HTML.*
