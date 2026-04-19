@@ -20,7 +20,7 @@ Cosmic AI runs entirely in your browser. No data leaves your machine. V34.1 adds
 - [x] Changeable username
 - [x] Custom avatar upload 
 - [x] Custom system prompts
-- [x] Multiple model support
+- [ ] Multiple model support
 - [ ] Chat history export/import
 - [ ] Voice input/output
 - [ ] PWA install
