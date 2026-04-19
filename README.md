@@ -64,6 +64,8 @@ Breaking the app hurts everyone using it.
 
 MIT © 2026 cosmic785
 
+**Lead Developer**: cosmic785
+
 **Special Thanks:**
 - **Nathan** — Wrote half of the script, handled UI design, and tested V34.1. This update wouldn’t exist without you.
 - **The Discord Community** — For reporting bugs, testing builds, and sticking with us through the fixes.
