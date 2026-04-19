@@ -62,7 +62,7 @@ MIT © 2026 cosmic785
 
 **Credits:**
 - **Lead Developer**: cosmic785
-- **AI Development & Light Theme Rebuild**: Nathan — Helped build the AI backend, optimize responses, and fix V34.1
+- **UI Design & Tester**: Nathan — Designed UI improvements and tested V34.1 fixes
 
 ---
 **We are the official Cosmic AI.**
