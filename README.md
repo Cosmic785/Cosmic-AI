@@ -14,9 +14,11 @@ V34.1 focuses on customization and brain upgrades. Still runs entirely in your b
 - **Custom System Prompts**: Control AI behavior and personality
 - **Multiple Model Support**: Switch between local models in settings
 
-### 🐛 Known Issues
+### 🐛 Known Issues V34.1
 
-- **GUI Alignment**: Some UI elements are off/overlapping right now. Purely visual — doesn’t affect chat. Fix planned for V34.2
+- **GUI Alignment**: Some UI elements are misaligned/overlapping. Visual only — doesn’t affect functionality. Fix planned for V34.2
+
+- **Light Mode Removed**: Light theme was pulled from V34.1. The ISO implementation wasn’t doing good and introduced a breaking bug this update. We removed it instead of shipping it broken. Light mode is being rebuilt and will return in V34.2
 
 ### 🗺️ Roadmap
 
