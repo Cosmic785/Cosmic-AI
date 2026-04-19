@@ -4,14 +4,21 @@
 
 [Live Demo](https://cosmic785.github.io/my-local-ai/) · [Report a Bug](https://github.com/cosmic785/my-local-ai/issues)
 
-Cosmic AI V34 is a lightweight, client-side AI chat interface designed for privacy and speed. No data leaves your machine. Customize your name, theme, and avatar to make it yours.
+Cosmic AI V34 is a lightweight, client-side AI chat interface designed for privacy and speed. No data leaves your machine. Make it yours with custom profiles, themes, and more.
 
-### ✨ Features
+### 🔥 What's New in V34.1
 
-- **100% Local & Private**: Runs entirely in your browser. No API keys, no tracking.
-- **Customizable Profile**: Set your username and upload a custom avatar
-- **Theme Support**: Switch between light/dark modes for comfy chatting
-- **Clean UI**: Minimal, fast interface focused on the conversation
+**Profile Update — Coming Next Release**
+- **Change Your Name**: Update your display name anytime from settings. No more being stuck with the first name you picked
+- **Upload Your Profile Picture**: Ditch the default avatar. Upload your own image to personalize your chat experience
+- **Auto-Save**: All profile changes save instantly to your browser. Your setup follows you every time you open Cosmic AI
+
+### ✨ Core Features
+
+- **100% Local & Private**: Runs entirely in your browser. No API keys, no tracking
+- **Custom Profiles**: Set your username + avatar to personalize the interface
+- **Theme Support**: Light/dark mode toggle for day and night sessions
+- **Fast & Minimal**: Clean UI focused on conversation, not clutter
 - **Open Source**: Fork it, modify it, self-host it
 
 ### 🛠️ Tech Stack
@@ -20,21 +27,45 @@ Cosmic AI V34 is a lightweight, client-side AI chat interface designed for priva
 | --- | --- |
 | Frontend | HTML, CSS, JavaScript |
 | Hosting | GitHub Pages |
-| Storage | Browser localStorage for settings + chat history |
-| AI Engine | Runs locally / via WebAssembly / connects to LocalAI backend |
-
-> Note: Update the "AI Engine" line to match what you're actually using - Ollama, LocalAI, llama.cpp WASM, Transformers.js, etc.
+| Storage | Browser localStorage for profile + settings + chat |
+| AI Engine | Local inference — update this to match your backend |
 
 ### 🚀 Quick Start
 
-**To use it:**
 1. Go to https://cosmic785.github.io/my-local-ai/
-2. Set your **User Name** and **Avatar**
-3. Pick your **Theme**
-4. Start chatting
+2. Click **User Name** to set your display name
+3. Hit **Change Avatar** to upload your profile picture
+4. Pick your **Theme**
+5. Start chatting
 
-**To run locally / self-host:**
-1. Clone the repo
-   ```bash
-   git clone https://github.com/cosmic785/my-local-ai.git
-   cd my-local-ai
+### ⚙️ Profile Settings
+
+**User Name**: Changes how the AI addresses you and how you appear in chat
+**Avatar**: Upload JPG/PNG. Stored locally in your browser
+**Theme**: Persists across sessions
+
+To reset everything: Clear site data for `cosmic785.github.io` in browser settings.
+
+### 🗺️ Roadmap
+
+- [x] Changeable username
+- [x] Custom avatar upload
+- [ ] Chat history export/import
+- [ ] Custom system prompts
+- [ ] Voice input/output
+- [ ] Multiple model support
+- [ ] PWA install
+
+### 🤝 Contributing
+
+Found a bug or have an idea?
+1. [Open an issue](https://github.com/cosmic785/my-local-ai/issues)
+2. Fork the repo and submit a PR
+
+### 📄 License
+
+MIT © 2026 cosmic785
+
+---
+
+*Built for privacy-first AI. Your data, your machine, your rules.*
