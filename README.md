@@ -69,7 +69,7 @@ Thanks for keeping Cosmic AI safe for everyone.
 
 ### 📄 License
 
-MIT © 2026 cosmic785
+MIT © 2026 cosmic785/owner
 
 ---
 *Your data, your machine, your rules. Don’t hack the HTML.*
