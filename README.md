@@ -33,10 +33,9 @@ Cosmic AI V34 is a lightweight, client-side AI chat interface designed for priva
 ### 🚀 Quick Start
 
 1. Go to https://cosmic785.github.io/my-local-ai/
-2. Click **User Name** to set your display name
-3. Hit **Change Avatar** to upload your profile picture
-4. Pick your **Theme**
-5. Start chatting
+2. Click **Upload Profile** to set your display name
+3. Pick your **Theme**
+4. Start chatting
 
 ### ⚙️ Profile Settings
 
