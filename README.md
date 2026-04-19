@@ -71,19 +71,70 @@ Have an idea? Open a [Feature Request](https://github.com/Cosmic785/Cosmic-AI/is
 
 ## 📜 License
 
-MIT License
+MIT License — see [LICENSE](LICENSE) file.
 
 **💼 Commercial use**: DM @Cosmic first. Personal use = free forever.
 
 ## 👥 Credits
 
-| Icon | Name | Role | Contribution |
-| --- | --- | --- | --- |
-| :crown: | **Cosmic** | **Owner & Creator** | :fire: Founded Cosmic AI, :art: designed branding, :bulb: created AI concept, :brain: owns & oversees project |
-| :computer: | **Userccv** | Lead Developer | :scroll: Wrote 100% of base scripts, :construction_site: built architecture, :zap: handles core development |
-| :art: | **Nathan** | UI & Testing Lead | :frame_photo: Designed entire UI, :test_tube: led V34.1 testing, :paintbrush: co-developed V34.1 features |
+# :star2: COSMIC AI TEAM CREDITS :star2:
 
-**🙏 Special Thanks**: The Discord Community for bug reports, testing, and feedback.
+═══════════════════════════════════════
+
+## :crown: OWNER & CREATOR
+> **@Cosmic**
+> :bulb: Founder of Cosmic AI
+> ━━━━━━━━━━━━━━━━━━━━━━
+> :fire: Created the original AI concept & started the project
+> :art: Designed the profile, branding, and logo
+> :sparkles: Established the "Your data, your rules" vision
+> :pencil: Wrote core system prompts
+> :brain: Owns and oversees Cosmic AI
+>
+> *Cosmic is the owner and creator of Cosmic AI.*
+
+═══════════════════════════════════════
+
+## :computer: LEAD DEVELOPER
+> **Userccv** 
+> :construction_site: Project Lead Developer
+> ━━━━━━━━━━━━━━━━━━━━━━
+> :scroll: Wrote 100% of the base scripts & backend logic 
+> :compass: Handles core development and architecture
+> :closed_lock_with_key: Built security & anti-exploit systems
+> :zap: Implements features and maintains codebase
+> 
+> *Userccv leads development under Cosmic.*
+
+═══════════════════════════════════════
+
+## :art: UI & TESTING LEAD
+> **Nathan**
+> :paintbrush: Co-Developer — V34.1
+> ━━━━━━━━━━━━━━━━━━━━━━
+> :frame_photo: Designed the ENTIRE user interface
+> :computer: Wrote half of the V34.1 script alongside Cosmic
+> :test_tube: Led all testing & QA for V34.1 release
+> :sunny: Rebuilt the Light Theme from scratch
+> :triangular_ruler: Fixed all GUI alignment/overlapping issues
+>
+> *V34.1 wouldn’t exist without Nathan’s work.*
+
+═══════════════════════════════════════
+
+## :pray: SPECIAL THANKS
+
+**:test_tube: The Discord Community**
+> For reporting bugs, testing builds, and giving feedback.
+
+═══════════════════════════════════════
+
+**:warning: OFFICIAL COSMIC AI ONLY**
+:globe_with_meridians: https://cosmic785.github.io/Cosmic-AI/
+:no_entry_sign: **Don’t hack the HTML.** Report bugs, don’t exploit them.
+:floppy_disk: *Your data, your machine, your rules.*
+
+═══════════════════════════════════════
 
 ---
 
