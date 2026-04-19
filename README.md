@@ -133,6 +133,6 @@ MIT License
 :globe_with_meridians: https://cosmic785.github.io/Cosmic-AI/
 :no_entry_sign: **Don’t hack the HTML.** Report bugs, don’t exploit them.
 :floppy_disk: *Your data, your machine, your rules.*
-> :warning: Userccv Did not update This one
+> Userccv Did not update This one
 
 ═══════════════════════════════════════
