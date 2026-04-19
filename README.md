@@ -73,7 +73,7 @@ Have an idea? Open a [Feature Request](https://github.com/Cosmic785/Cosmic-AI/is
 
 MIT License 
 
-**Cosmic Owner**
+**@Cosmic785**
 
 ## 👥 Credits
 
