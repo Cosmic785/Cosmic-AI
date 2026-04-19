@@ -63,7 +63,7 @@
 
 **📝 Report here**: [Issues](https://github.com/Cosmic785/Cosmic-AI/issues) → New issue → Bug report
 
-Include: 📱 Device, 💻 OS, 🌐 Browser,
+Include: 📱 Device, 💻 OS, 🌐 Browser, 📸 Screenshots, 🖥️ Console errors
 
 ## 💡 Feature Requests
 
@@ -71,7 +71,7 @@ Have an idea? Open a [Feature Request](https://github.com/Cosmic785/Cosmic-AI/is
 
 ## 📜 License
 
-MIT License 
+MIT License
 
 **@Cosmic785**
 
@@ -99,10 +99,11 @@ MIT License
 > **Userccv** 
 > :construction_site: Project Lead Developer
 > ━━━━━━━━━━━━━━━━━━━━━━
-> :scroll: Wrote 23% of the base scripts & backend logic 
+> :scroll: Wrote 100% of the base scripts & backend logic 
 > :compass: Handles core development and architecture
 > :closed_lock_with_key: Built security & anti-exploit systems
 > :zap: Implements features and maintains codebase
+> :warning: Userccv did not update this one tho
 > 
 > *Userccv leads development under Cosmic.*
 
