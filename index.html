@@ -95,8 +95,27 @@
             outline: none;
         }
 
+        .settings-btn {
+            background: var(--user-bubble);
+            color: var(--text);
+            border: 1px solid var(--border);
+            padding: 8px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            text-align: center;
+            transition: 0.2s;
+            width: 100%;
+            margin-bottom: 8px;
+        }
+
+        .settings-btn:hover {
+            background: var(--menu-hover);
+            border-color: var(--accent);
+        }
+
         /* ============================================================
-           3. SIDEBAR NAVIGATION (NEW CHAT, RENAME, DELETE)
+           3. SIDEBAR NAVIGATION
            ============================================================ */
         #new-chat-container {
             padding: 10px;
@@ -165,21 +184,6 @@
             color: var(--accent);
         }
 
-        .notif-dot {
-            width: 7px; height: 7px;
-            background-color: var(--accent);
-            border-radius: 50%;
-            margin-left: auto;
-            margin-right: 5px;
-            animation: pingPulse 1.5s infinite ease-in-out;
-        }
-
-        @keyframes pingPulse {
-            0% { transform: scale(0.8); opacity: 0.5; }
-            50% { transform: scale(1.2); opacity: 1; }
-            100% { transform: scale(0.8); opacity: 0.5; }
-        }
-
         /* ============================================================
            4. CHAT WINDOW STYLES
            ============================================================ */
@@ -214,7 +218,7 @@
             border-radius: 12px;
             font-size: 14.5px;
             line-height: 1.4;
-            font-family: var(--font-main); /* Normalized Font */
+            font-family: var(--font-main);
         }
 
         .user .content { background: var(--user-bubble); }
@@ -266,26 +270,26 @@
         <div id="top-menu">
             <div id="settings-panel">
                 <div class="settings-row">
-                    <label>User Name</label>
-                    <input type="text" id="username-input" class="settings-input" onchange="window.updateUsername(this.value)">
-                </div>
-                <div class="settings-row">
                     <label>Theme</label>
                     <select class="settings-select" onchange="window.updateTheme(this.value)">
                         <option value="default">Default Dark</option>
                         <option value="terminal">Matrix Terminal</option>
                     </select>
                 </div>
-                <div class="settings-btn" onclick="document.getElementById('file-upload').click()" style="margin-bottom:10px; background:var(--user-bubble); padding:6px; border-radius:4px; cursor:pointer; font-size:11px; text-align:center;">Change Avatar</div>
+                
+                <div class="settings-btn" onclick="document.getElementById('file-upload').click()">Change Avatar</div>
+                <div class="settings-btn" onclick="window.promptChangeName()">Change Name</div>
+                
                 <input type="file" id="file-upload" style="display:none" accept="image/*">
                 
                 <a href="https://github.com/Cosmic785/my-local-ai" target="_blank" style="display:block; margin-top:10px; color:var(--accent); text-decoration:none; font-size:11px; text-align:center;">🐛 Report a Bug</a>
                 
                 <button class="settings-btn" onclick="window.logout()" style="width:100%; background:#800; color:white; border:none; padding:6px; border-radius:4px; cursor:pointer; margin-top:10px;">Logout</button>
             </div>
+            
             <div id="user-profile-trigger" onclick="window.toggleSettings()" style="padding:10px; display:flex; align-items:center; gap:10px; cursor:pointer;">
                 <div id="user-profile-img" style="width:28px; height:28px; border-radius:50%; background-color:var(--accent); background-size:cover;"></div>
-                <span id="display-name" style="font-size:12px;">Guest</span>
+                <span id="display-name" style="font-size:12px; font-weight: bold;">Cosmic</span>
             </div>
         </div>
 
@@ -314,6 +318,13 @@
     window.toggleSettings = () => {
         const p = document.getElementById('settings-panel');
         p.style.display = (p.style.display === 'block') ? 'none' : 'block';
+    };
+
+    window.promptChangeName = () => {
+        const newName = prompt("Enter your new name:", document.getElementById('display-name').innerText);
+        if (newName && newName.trim() !== "") {
+            window.updateUsername(newName.trim());
+        }
     };
 
     window.updateUsername = (v) => {
@@ -351,6 +362,7 @@
             reader.onload = (ev) => {
                 document.getElementById('user-profile-img').style.backgroundImage = `url('${ev.target.result}')`;
                 localStorage.setItem('custom_user_pic', ev.target.result);
+                window.render(); // Refresh chat to show new avatar
             };
             reader.readAsDataURL(file);
         }
@@ -364,7 +376,7 @@
 
 <script type="module">
     /* ------------------------------------------------------------
-       CORE AI MODULE (EXPANDED)
+       CORE AI MODULE
        ------------------------------------------------------------ */
     import { CreateMLCEngine } from "https://esm.run/@mlc-ai/web-llm";
     
@@ -518,6 +530,7 @@
     }
 
     document.getElementById("userInput").addEventListener("keypress", (e) => { if(e.key === "Enter") window.ask(); });
+    window.render = window.render; // Ensure accessibility
 </script>
 </body>
 </html>
