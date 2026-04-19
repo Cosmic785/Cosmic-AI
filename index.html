@@ -80,6 +80,7 @@
             margin-bottom: 8px;
             display: block;
             box-sizing: border-box;
+            text-decoration: none;
         }
 
         .settings-btn:hover {
@@ -209,6 +210,9 @@
             <div id="settings-panel">
                 <div class="settings-btn" onclick="document.getElementById('file-upload').click()">Change Avatar</div>
                 <div class="settings-btn" onclick="window.promptChangeName()">Change Name</div>
+                
+                <a href="https://github.com/Cosmic785/my-local-ai" target="_blank" class="settings-btn" style="font-size: 11px; background: transparent; border-style: dashed;">🐛 Report a Bug</a>
+                
                 <input type="file" id="file-upload" style="display:none" accept="image/*">
                 <button class="settings-btn" onclick="window.logout()" style="background:#800; color:white; border:none; margin-top:10px;">Logout</button>
             </div>
@@ -334,10 +338,9 @@
         contentDiv.innerHTML = `<i>Thinking...</i>`;
 
         try {
-            // UPDATED SYSTEM PROMPT BLOCK
             const chunks = await engine.chat.completions.create({
                 messages: [
-                    { role: "system", content: "You are Cosmic AI V34.1." },
+                    { role: "system", content: "You are Cosmic AI V34." },
                     ...chats[targetId].history
                 ],
                 stream: true
