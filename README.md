@@ -48,12 +48,12 @@ To reset everything: Clear site data for `cosmic785.github.io` in browser settin
 
 ### 🗺️ Roadmap
 
-- [x] Changeable username
-- [x] Custom avatar upload
+- [ ] Changeable username
+- [ ] Custom avatar upload
 - [ ] Chat history export/import
-- [ ] Custom system prompts
+- [x] Custom system prompts
 - [ ] Voice input/output
-- [ ] Multiple model support
+- [x] Multiple model support
 - [ ] PWA install
 
 ### 🤝 Contributing
