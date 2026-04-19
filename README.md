@@ -32,6 +32,21 @@ Cosmic AI is free, open source, and runs locally. To keep it that way:
 
 Basically: don’t be a jerk. Breaking the app hurts everyone using it.
 
+⚠️ REPORT A BUG RULES ⚠️
+
+**READ BEFORE SUBMITTING:**
+
+1. **Test on the official version first**: https://cosmic785.github.io/my-local-ai/
+2. **No modding or hacking the app**: Don’t edit the HTML/JS, inject code, or exploit bugs. Don’t hack the HTML.
+3. **No fake reports from modified builds**: If you changed the code, revert it first. We don’t debug modded versions.
+4. **Check for duplicates**: Search existing issues before posting.
+
+**Breaking the app isn’t a bug report.** Find a real bug? Report it properly and we’ll fix it. 
+
+Hack the app instead of reporting = no support + ban.
+
+Thanks for keeping Cosmic AI safe for everyone.
+
 ### 🗺️ Roadmap
 
 - [x] Changeable username
