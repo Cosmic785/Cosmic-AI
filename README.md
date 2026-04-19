@@ -18,7 +18,7 @@ V34.1 focuses on customization and brain upgrades. Still runs entirely in your b
 
 - **GUI Alignment**: Some UI elements are misaligned/overlapping. Visual only — doesn’t affect functionality. Fix planned for V34.2
 
-- **Light Mode Removed**: Light theme was pulled from V34.1. The ISO implementation wasn’t doing good and introduced a breaking bug this update. We removed it instead of shipping it broken. Light mode is being rebuilt and will return in V34.2
+- **Light Theme Removed**: Light mode was pulled from V34.1. The theme wasn’t doing good and introduced a bug this update. Light theme is being rebuilt and will return in V34.2
 
 ### 🗺️ Roadmap
 
