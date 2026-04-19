@@ -71,17 +71,20 @@ Have an idea? Open a [Feature Request](https://github.com/Cosmic785/Cosmic-AI/is
 
 ## 📜 License
 
-MIT License
+MIT License — see [LICENSE](LICENSE) file.
 
-**💼 Commercial use**: DM @cosmic785 first. Personal use = free forever.
+**💼 Commercial use**: DM @Cosmic first. Personal use = free forever.
 
 ## 👥 Credits
 
 | Icon | Name | Role | Contribution |
 | --- | --- | --- | --- |
-| 💡 | **Userccv** | **Creator & Founder** | 🤖 Made the AI & concept, 🎨 designed the profile/branding, 🔥 started the project |
-| 👑 | **Cosmic** | Project Leader | 💻 Wrote all core scripts, 🏗️ built the architecture, 🧭 leads development |
-| 🎨 | **Nathan** | UI & Testing Lead | 🖌️ Designed the entire UI, 🧪 handled all V34.1 testing, 🤝 co-developed features |
+| :crown: | **Cosmic** | **Owner & Creator** | :fire: Founded Cosmic AI, :art: designed branding, :bulb: created AI concept, :brain: owns & oversees project |
+| :computer: | **Userccv** | Lead Developer | :scroll: Wrote 100% of base scripts, :construction_site: built architecture, :zap: handles core development |
+| :art: | **Nathan** | UI & Testing Lead | :frame_photo: Designed entire UI, :test_tube: led V34.1 testing, :paintbrush: co-developed V34.1 features |
+
+**🙏 Special Thanks**: The Discord Community for bug reports, testing, and feedback.
+
 ---
 
 <p align="center">
