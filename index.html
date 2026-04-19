@@ -25,12 +25,6 @@
             --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        body.terminal {
-            --bg: #0c0c0c; --sidebar: #161616; --text: #00ff00; --input-bg: #000; --border: #00ff00;
-            --ai-bubble: transparent; --user-bubble: #003300; --accent: #00ff00;
-            font-family: 'Courier New', monospace !important;
-        }
-
         body {
             font-family: var(--font-main);
             background-color: var(--bg);
@@ -72,25 +66,6 @@
             border-top: 1px solid var(--border);
         }
 
-        .settings-row {
-            margin-bottom: 10px;
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-            font-size: 12px;
-        }
-
-        .settings-input, .settings-select {
-            background: var(--bg);
-            border: 1px solid var(--border);
-            color: var(--text);
-            padding: 6px;
-            border-radius: 4px;
-            outline: none;
-            width: calc(100% - 14px);
-        }
-
-        /* UI ALIGNMENT FIX */
         .settings-btn {
             background: var(--user-bubble);
             color: var(--text);
@@ -124,7 +99,6 @@
             cursor: pointer;
             font-weight: 600;
             font-size: 13px;
-            transition: 0.2s;
         }
 
         #history-list {
@@ -145,9 +119,28 @@
             justify-content: space-between;
             align-items: center;
             transition: 0.2s;
+            position: relative;
         }
 
+        .history-item:hover { background: var(--menu-hover); }
         .history-item.active { background: var(--user-bubble); border-left: 2px solid var(--accent); }
+
+        .history-actions {
+            display: none;
+            gap: 6px;
+        }
+
+        .history-item:hover .history-actions {
+            display: flex;
+        }
+
+        .action-icon {
+            opacity: 0.6;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .action-icon:hover { opacity: 1; color: var(--accent); }
 
         #main { flex: 1; display: none; flex-direction: column; }
         
@@ -214,27 +207,15 @@
     <div id="sidebar">
         <div id="top-menu">
             <div id="settings-panel">
-                <div class="settings-row">
-                    <label>Theme</label>
-                    <select class="settings-select" onchange="window.updateTheme(this.value)">
-                        <option value="default">Default Dark</option>
-                        <option value="terminal">Matrix Terminal</option>
-                    </select>
-                </div>
-                
                 <div class="settings-btn" onclick="document.getElementById('file-upload').click()">Change Avatar</div>
                 <div class="settings-btn" onclick="window.promptChangeName()">Change Name</div>
-                
                 <input type="file" id="file-upload" style="display:none" accept="image/*">
-                
-                <a href="https://github.com/Cosmic785/my-local-ai" target="_blank" style="display:block; margin-top:10px; color:var(--accent); text-decoration:none; font-size:11px; text-align:center;">🐛 Report a Bug</a>
-                
                 <button class="settings-btn" onclick="window.logout()" style="background:#800; color:white; border:none; margin-top:10px;">Logout</button>
             </div>
             
             <div id="user-profile-trigger" onclick="window.toggleSettings()" style="padding:10px; display:flex; align-items:center; gap:10px; cursor:pointer;">
                 <div id="user-profile-img" style="width:28px; height:28px; border-radius:50%; background-color:var(--accent); background-size:cover;"></div>
-                <span id="display-name" style="font-size:13px; font-weight: 800; letter-spacing: 0.3px;">Cosmic Owner</span>
+                <span id="display-name" style="font-size:13px; font-weight: 800;">Cosmic Owner</span>
             </div>
         </div>
 
@@ -272,11 +253,6 @@
     window.updateUsername = (v) => {
         localStorage.setItem('cosmic_user_name', v);
         document.getElementById('display-name').innerText = v;
-    };
-
-    window.updateTheme = (t) => {
-        document.getElementById('app-body').className = (t !== 'default') ? t : '';
-        localStorage.setItem('cosmic_theme', t);
     };
 
     window.unlockNow = () => {
@@ -324,7 +300,6 @@
     window.addEventListener('load', async () => {
         refreshSidebar();
         try {
-            // FASTER ENGINE INITIALIZATION
             engine = await CreateMLCEngine("Llama-3.2-1B-Instruct-q4f16_1-MLC", {
                 initProgressCallback: (p) => { 
                     document.getElementById("status").innerText = `CORE: ${Math.round(p.progress * 100)}%`; 
@@ -359,13 +334,12 @@
         contentDiv.innerHTML = `<i>Thinking...</i>`;
 
         try {
-            // FASTER RESPONSE CONFIG
+            // UPDATED SYSTEM PROMPT BLOCK
             const chunks = await engine.chat.completions.create({
                 messages: [
-                    { role: "system", content: "Short, fast, helpful responses." },
+                    { role: "system", content: "You are Cosmic AI V34.1." },
                     ...chats[targetId].history
                 ],
-                temperature: 0.6,
                 stream: true
             });
 
@@ -396,6 +370,26 @@
     window.selectChat = (id) => {
         currentId = id;
         window.render();
+    };
+
+    window.renameChat = (id, e) => {
+        e.stopPropagation();
+        const n = prompt("Rename this chat:", chats[id].title);
+        if (n && n.trim() !== "") {
+            chats[id].title = n.trim();
+            save();
+            refreshSidebar();
+        }
+    };
+
+    window.deleteChat = (id, e) => {
+        e.stopPropagation();
+        if (confirm("Delete this conversation permanently?")) {
+            delete chats[id];
+            if (currentId === id) currentId = null;
+            save();
+            window.render();
+        }
     };
 
     window.render = () => {
@@ -430,7 +424,13 @@
             const item = document.createElement("div");
             item.className = `history-item ${id === currentId ? 'active' : ''}`;
             item.onclick = () => window.selectChat(id);
-            item.innerHTML = `<span>${chats[id].title}</span>`;
+            item.innerHTML = `
+                <span style="flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">${chats[id].title}</span>
+                <div class="history-actions">
+                    <span class="action-icon" onclick="window.renameChat('${id}', event)">✏️</span>
+                    <span class="action-icon" onclick="window.deleteChat('${id}', event)">🗑️</span>
+                </div>
+            `;
             list.appendChild(item);
         });
     }
