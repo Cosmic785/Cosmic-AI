@@ -72,4 +72,10 @@ Thanks for keeping Cosmic AI safe for everyone.
 MIT © 2026 cosmic785
 
 ---
-*Your data, your machine, your rules. Don’t hack the HTML.*
+**We are the official Cosmic AI.** 
+**Do not go to fake or modded versions.** Only use: https://cosmic785.github.io/my-local-ai/
+
+Modded builds are not supported, may be unsafe, and violate usage rules. 
+No modding or hacking the app. Don’t hack the HTML.
+
+*Your data, your machine, your rules.*
