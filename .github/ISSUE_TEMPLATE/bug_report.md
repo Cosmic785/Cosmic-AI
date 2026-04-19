@@ -1,46 +1,53 @@
 ---
-name: Bug report
-about: Create a report to help us improve
-title: ''
-labels: ''
-assignees: ''
+name: Bug Report
+about: Report a bug in Cosmic AI V34.1 — test on official site first
+title: "[Bug] "
+labels: bug
+assignees: cosmic785
+---
+
+## ⚠️ READ BEFORE SUBMITTING
+**We are the official Cosmic AI.** Only report bugs from: https://cosmic785.github.io/Cosmic-AI/
+
+- [ ] I tested this on the official site linked above
+- [ ] I am NOT using a modded/hacked version
+- [ ] I understand mods will not receive support
+- [ ] **Don’t hack the HTML.** Report bugs, don’t exploit them
+
+If you checked all 4 boxes, continue. If not, stop here — we can’t help.
 
 ---
 
-## ⚠️ Before you report
-1. **Test on the official site first**: https://cosmic785.github.io/Cosmic-AI/
-2. **We do NOT debug modded builds.** If you edited the HTML/JS, we can’t help
-3. **Don’t hack the HTML.** Find a bug? Report it, don’t exploit it
-
 ## Describe the bug
-A clear and concise description of what the bug is.
+A clear, specific description. One bug per report.
 
-**Example**: "Light theme toggle doesn't work on mobile Safari"
+**Bad**: "app broken"
+**Good**: "Chat input box overlaps Send button on mobile in light theme"
 
 ## To Reproduce
-Steps to reproduce the behavior:
+Exact steps to make the bug happen:
 1. Go to 'https://cosmic785.github.io/Cosmic-AI/'
-2. Click on 'Settings icon'
-3. Toggle 'Light theme'
-4. See error: 'screen stays dark'
+2. Set theme to 'Light' in Settings
+3. Open on mobile with screen width < 400px
+4. Type a long message in chat input
+5. See error: 'Send button gets covered by text'
 
 ## Expected behavior
-What you expected to happen.
+What should happen instead?
 
-**Example**: "Theme should switch to light mode"
+**Example**: "Send button should stay visible to the right of input box"
 
-## Screenshots
-If applicable, add screenshots to help explain your problem.
+## Actual behavior
+What actually happens instead?
 
-## Device/Browser info:
-- Device: [e.g. iPhone 14, Desktop PC]
-- OS: [e.g. iOS 17, Windows 11]
-- Browser: [e.g. Chrome 125, Safari, Firefox]
-- Cosmic AI Version: V34.1
+**Example**: "Send button disappears under the input text when it wraps to 2 lines"
 
-## Are you using a modded version?
-- [x] No, I’m on the official site
-- [ ] Yes [we can’t provide support for mods]
+## Screenshots or Screen Recording
+**Required if it’s a visual bug.** Drag/drop images or paste links.
+- Desktop: Use browser screenshot tool
+- Mobile: Screen record if possible
 
-## Additional context
-Add any other context about the problem here.
+## Console Errors
+1. Press F12 → Console tab
+2. Reproduce the bug
+3. Copy/paste any red error text here
