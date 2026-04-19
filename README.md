@@ -2,7 +2,7 @@
 
 **Your local, private AI — GUI fixed, light theme rebuilt**
 
-[Live Demo](https://cosmic785.github.io/my-local-ai/) · [Report a Bug](https://github.com/Cosmic785/my-local-ai) · [Discord](https://discord.gg/9aRXSCDX4z)
+[Live Demo](https://cosmic785.github.io/Cosmic-AI/) · [Report a Bug](https://github.com/Cosmic785/Cosmic-AI) · [Discord](https://discord.gg/9aRXSCDX4z)
 
 Cosmic AI runs entirely in your browser. No API keys, no tracking, no data leaves your machine.
 
@@ -25,7 +25,7 @@ Cosmic AI runs entirely in your browser. No API keys, no tracking, no data leave
 
 ### 🚀 Getting Started
 
-1. Go to: https://cosmic785.github.io/my-local-ai/
+1. Go to: https://cosmic785.github.io/Cosmic-AI/
 2. Pick a model or use the default
 3. Start chatting. That’s it
 
@@ -38,16 +38,16 @@ No install. No signup. No API keys.
 1. **No modding or hacking the app**: Don’t edit the HTML/JS to bypass stuff, inject code, or exploit bugs. **Don’t hack the HTML**
 2. **Don’t redistribute malicious builds**: Forking is fine, but don’t share versions with malware/trackers
 3. **No commercial abuse**: Personal use = free forever. Contact me for commercial use
-4. **Report bugs properly**: Use GitHub: https://github.com/Cosmic785/my-local-ai or Discord. Don’t break things then ask for help
+4. **Report bugs properly**: Use GitHub: https://github.com/Cosmic785/Cosmic-AI or Discord. Don’t break things then ask for help
 5. **Respect the license**: MIT — give credit if you fork
 
 Breaking the app hurts everyone using it.
 
 ### 🐛 Found a Bug?
 
-1. **Test on the official version first**: https://cosmic785.github.io/my-local-ai/
+1. **Test on the official version first**: https://cosmic785.github.io/Cosmic-AI/
 2. **Make sure you’re not on a modded build**: We don’t debug modified versions
-3. **Report it here**: https://github.com/Cosmic785/my-local-ai
+3. **Report it here**: https://github.com/Cosmic785/Cosmic-AI
 4. **Or join Discord**: https://discord.gg/9aRXSCDX4z
 
 **Don’t hack the HTML.** Find a bug? Report it, don’t exploit it.
@@ -73,8 +73,8 @@ MIT © 2026 cosmic785
 
 ---
 **We are the official Cosmic AI.**
-**Do not go to fake or modded versions.** Only use: https://cosmic785.github.io/my-local-ai/
-**Report bugs**: https://github.com/Cosmic785/my-local-ai
+**Do not go to fake or modded versions.** Only use: https://cosmic785.github.io/Cosmic-AI/
+**Report bugs**: https://github.com/Cosmic785/Cosmic-AI
 **Official Discord**: https://discord.gg/9aRXSCDX4z
 
 *Your data, your machine, your rules. Don’t hack the HTML.*
