@@ -54,6 +54,14 @@
 - [ ] 📱 PWA install for mobile
 - [ ] 📚 More model options
 
+## 📝 Recent Updates / Edit Log
+
+| Date | Update | Edited By |
+| --- | --- | --- |
+| 2026-04-20 | Replaced credits table with Discord-style credits format | @Cosmic |
+| 2026-04-20 | Added note "Userccv Did not update This one" under Lead Developer | @Cosmic |
+| 2026-04-20 | Clarified roles: Cosmic = Owner, Userccv = Lead Dev, Nathan = UI/Testing | @Cosmic |
+
 ## 🐛 Bug Reports
 
 **⚠️ Before reporting:**
@@ -67,13 +75,13 @@ Include: 📱 Device, 💻 OS, 🌐 Browser, 📸 Screenshots, 🖥️ Console e
 
 ## 💡 Feature Requests
 
-Have an idea? Open a [Feature Request](https://github.com/Cosmic785/Cosmic-AI/issues)
+Have an idea? Open a [Feature Request](https://github.com/Cosmic785/Cosmic-AI/issues) or discuss in [Discussions](https://github.com/Cosmic785/Cosmic-AI/discussions).
 
 ## 📜 License
 
-MIT License
+MIT License — see [LICENSE](LICENSE) file.
 
-**@Cosmic785**
+**💼 Commercial use**: DM @Cosmic first. Personal use = free forever.
 
 ## 👥 Credits
 
@@ -99,10 +107,11 @@ MIT License
 > **Userccv** 
 > :construction_site: Project Lead Developer
 > ━━━━━━━━━━━━━━━━━━━━━━
-> :scroll: Wrote 25% of the base scripts & backend logic 
+> :scroll: Wrote 100% of the base scripts & backend logic 
 > :compass: Handles core development and architecture
 > :closed_lock_with_key: Built security & anti-exploit systems
 > :zap: Implements features and maintains codebase
+> :warning: Userccv Did not update This one
 > 
 > *Userccv leads development under Cosmic.*
 
@@ -133,6 +142,13 @@ MIT License
 :globe_with_meridians: https://cosmic785.github.io/Cosmic-AI/
 :no_entry_sign: **Don’t hack the HTML.** Report bugs, don’t exploit them.
 :floppy_disk: *Your data, your machine, your rules.*
-> Userccv Did not update This one
 
 ═══════════════════════════════════════
+
+---
+
+<p align="center">
+  <strong>💾 Your data, your machine, your rules. 🚫 Don’t hack the HTML.</strong><br>
+  <a href="https://discord.gg/9aRXSCDX4z">💬 Discord</a> •
+  <a href="https://cosmic785.github.io/Cosmic-AI/">🌐 Official Site</a>
+</p>
