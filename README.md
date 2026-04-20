@@ -65,10 +65,9 @@
 
 | Date | Section | Change | Edited By |
 | --- | --- | --- | --- |
-| 2026-04-20 | Credits | Replaced table with Discord-style format | @Userccv |
-| 2026-04-20 | Credits > Userccv | Added "Userccv updated this one" note | @Userccv |
-| 2026-04-20 | Credits | Removed Nathan per Cosmic's request | @Userccv |
-| 2026-04-20 | Credits | Added Nathan back as UI helper | @Userccv |
+| 2026-04-20 | Credits | Replaced table with Discord-style format | @Cosmic785 |
+| 2026-04-20 | Credits > Userccv | Added "Userccv updated this one" note | @Cosmic785 |
+| 2026-04-20 | Credits | Nathan Has got removed From the creadits | @Cosmic785 |
 
 ## 🐛 Bug Reports
 
