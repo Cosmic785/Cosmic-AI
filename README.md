@@ -16,7 +16,7 @@
 ## 📝 Last Edited By
 
 **@Userccv** — 2026-04-20
-> Updated README credits format per Cosmic's request, added Nathan as helper
+> Updated README credits format per Cosmic's request, removed Nathan from team
 
 ---
 
@@ -67,7 +67,7 @@
 | --- | --- | --- | --- |
 | 2026-04-20 | Credits | Replaced table with Discord-style format | @Cosmic785 |
 | 2026-04-20 | Credits > Userccv | Added "Userccv updated this one" note | @Cosmic785 |
-| 2026-04-20 | Credits | Nathan Has got removed From the creadits | @Cosmic785 |
+| 2026-04-20 | Credits | Nathan removed — no longer part of active team | @Cosmic785 |
 
 ## 🐛 Bug Reports
 
@@ -125,9 +125,6 @@ MIT License — see [LICENSE](LICENSE) file.
 ═══════════════════════════════════════
 
 ## :pray: SPECIAL THANKS
-
-**:art: Nathan**
-> Helped with UI
 
 **:test_tube: The Discord Community**
 > For reporting bugs, testing builds, and giving feedback.
