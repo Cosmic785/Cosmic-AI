@@ -116,10 +116,20 @@ MIT License — see [LICENSE](LICENSE) file.
 
 ═══════════════════════════════════════
 
-## :pray: SPECIAL THANKS
+## :art: AI & UI DEVELOPER
+> **Nathan**
+> :wrench: AI & UI Development
+> ━━━━━━━━━━━━━━━━━━━━━━
+> :brain: Helps with AI improvements and tuning
+> :paintbrush: Works on UI design and user experience
+> :frame_photo: Assisted with V34.1 interface rebuild
+> :sunny: Helped with Light Theme implementation
+> 
+> *Nathan assists with AI and UI development.*
 
-**:art: Nathan**
-> Helps with AI and UI
+═══════════════════════════════════════
+
+## :pray: SPECIAL THANKS
 
 **:test_tube: The Discord Community**
 > For reporting bugs, testing builds, and giving feedback.
