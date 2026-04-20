@@ -414,7 +414,7 @@
         try {
             const chunks = await engine.chat.completions.create({
                 messages: [
-                    { role: "system", content: "You are Cosmic AI V34." },
+                    { role: "system", content: "You are Cosmic AI V34.1." },
                     ...chats[targetId].history
                 ],
                 stream: true
