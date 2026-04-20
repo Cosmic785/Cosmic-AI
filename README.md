@@ -13,6 +13,13 @@
 
 ---
 
+## 📝 Last Edited By
+
+**@Cosmic** — 2026-04-20
+> Updated credits to Discord format, set Cosmic as Owner, added "Userccv Did not update This one" note
+
+---
+
 ## ⚠️ We are the official Cosmic AI
 
 **✅ Only use the official version**: https://cosmic785.github.io/Cosmic-AI/
@@ -54,13 +61,13 @@
 - [ ] 📱 PWA install for mobile
 - [ ] 📚 More model options
 
-## 📝 Recent Updates / Edit Log
+## 📋 Edit History
 
-| Date | Update | Edited By |
-| --- | --- | --- |
-| 2026-04-20 | Replaced credits table with Discord-style credits format | @Cosmic |
-| 2026-04-20 | Added note "Userccv Did not update This one" under Lead Developer | @Cosmic |
-| 2026-04-20 | Clarified roles: Cosmic = Owner, Userccv = Lead Dev, Nathan = UI/Testing | @Cosmic |
+| Date | Section | Change | Edited By |
+| --- | --- | --- | --- |
+| 2026-04-20 | Credits | Replaced table with Discord-style format | @Cosmic |
+| 2026-04-20 | Credits > Userccv | Added "Userccv Did not update This one" | @Cosmic |
+| 2026-04-20 | Roles | Set Cosmic = Owner, Userccv = Lead Dev | @Cosmic |
 
 ## 🐛 Bug Reports
 
