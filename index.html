@@ -1,16 +1,17 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cosmic AI V34.1</title>
-    
+    <title>Cosmic AI V34.2</title>
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://accounts.google.com/gsi/client" async defer></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/github-dark.min.css">
     <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js"></script>
-    
+
     <style>
         /* ============================================================
            THEME VARIABLES - META AI STYLE
@@ -89,7 +90,7 @@
             border-top: 1px solid var(--border);
         }
 
-       .settings-row {
+      .settings-row {
             margin-bottom: 10px;
             display: flex;
             flex-direction: column;
@@ -97,7 +98,7 @@
             font-size: 12px;
         }
 
-       .settings-select {
+      .settings-select {
             background: var(--bg);
             border: 1px solid var(--border);
             color: var(--text);
@@ -107,7 +108,7 @@
             width: 100%;
         }
 
-       .settings-btn {
+      .settings-btn {
             background: var(--user-bubble);
             color: var(--text);
             border: 1px solid var(--border);
@@ -124,7 +125,7 @@
             text-decoration: none;
         }
 
-       .settings-btn:hover {
+      .settings-btn:hover {
             background: var(--menu-hover);
             border-color: var(--accent);
         }
@@ -132,7 +133,7 @@
         /* SIDEBAR CHATS */
         #new-chat-container { padding: 10px; }
 
-       .btn-new-chat {
+      .btn-new-chat {
             width: 100%;
             background: var(--meta-gradient);
             color: #fff;
@@ -143,7 +144,7 @@
             font-weight: 700;
             font-size: 13px;
         }
-       .btn-new-chat:hover {
+      .btn-new-chat:hover {
             opacity: 0.9;
             border: none;
         }
@@ -157,7 +158,7 @@
             gap: 4px;
         }
 
-       .history-item {
+      .history-item {
             padding: 8px 10px;
             border-radius: 6px;
             font-size: 13px;
@@ -168,16 +169,16 @@
             transition: 0.2s;
         }
 
-       .history-item:hover { background: var(--menu-hover); }
-       .history-item.active { background: var(--user-bubble); border-left: 2px solid var(--accent); }
+      .history-item:hover { background: var(--menu-hover); }
+      .history-item.active { background: var(--user-bubble); border-left: 2px solid var(--accent); }
 
-       .history-actions { display: none; gap: 6px; }
-       .history-item:hover.history-actions { display: flex; }
+      .history-actions { display: none; gap: 6px; }
+      .history-item:hover.history-actions { display: flex; }
 
-        .action-icon { opacity: 0.6; cursor: pointer; font-size: 14px; }
-        .action-icon:hover { opacity: 1; color: var(--accent); }
+       .action-icon { opacity: 0.6; cursor: pointer; font-size: 14px; }
+       .action-icon:hover { opacity: 1; color: var(--accent); }
 
-        .context-menu {
+       .context-menu {
             position: fixed;
             background: var(--settings-bg);
             border: 1px solid var(--border);
@@ -188,7 +189,7 @@
             display: none;
             min-width: 140px;
         }
-        .context-menu-item {
+       .context-menu-item {
             padding: 8px 14px;
             font-size: 13px;
             cursor: pointer;
@@ -196,13 +197,13 @@
             align-items: center;
             gap: 10px;
         }
-        .context-menu-item:hover {
+       .context-menu-item:hover {
             background: var(--menu-hover);
         }
-        .context-menu-item.delete {
+       .context-menu-item.delete {
             color: #ff4d4d;
         }
-        .context-menu-divider {
+       .context-menu-divider {
             height: 1px;
             background: var(--border);
             margin: 4px 0;
@@ -210,7 +211,7 @@
 
         /* CHAT WINDOW */
         #main { flex: 1; display: none; flex-direction: column; }
-        
+
         #chat-window {
             flex: 1;
             overflow-y: auto;
@@ -220,10 +221,10 @@
             gap: 15px;
         }
 
-       .row { display: flex; gap: 12px; width: 100%; }
-       .row.user { flex-direction: row-reverse; }
+      .row { display: flex; gap: 12px; width: 100%; }
+      .row.user { flex-direction: row-reverse; }
 
-       .avatar {
+      .avatar {
             width: 32px; height: 32px;
             border-radius: 50%;
             flex-shrink: 0;
@@ -232,12 +233,12 @@
             border: 1px solid var(--border);
         }
 
-       .ai-avatar { 
+      .ai-avatar {
             background: var(--meta-gradient);
             border: none;
         }
 
-       .content {
+      .content {
             max-width: 85%;
             padding: 10px 14px;
             border-radius: 12px;
@@ -245,13 +246,13 @@
             line-height: 1.4;
         }
 
-       .user.content { 
-            background: var(--user-bubble); 
+      .user.content {
+            background: var(--user-bubble);
             border: 1px solid var(--border);
         }
 
         #input-container { padding: 15px 10%; background: var(--bg); }
-       .input-box {
+      .input-box {
             background: var(--input-bg);
             border-radius: 20px;
             padding: 8px 18px;
@@ -265,13 +266,13 @@
         }
 
         #sendBtn {
-            background: var(--meta-gradient); 
+            background: var(--meta-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            border: none; 
-            cursor: pointer; 
-            font-size: 22px; 
+            border: none;
+            cursor: pointer;
+            font-size: 22px;
             padding-left: 10px;
             font-weight: 900;
         }
@@ -280,7 +281,7 @@
 <body id="app-body">
 
     <div id="login-overlay">
-        <h1 style="color: white;">Cosmic AI V34.1</h1>
+        <h1 style="color: white;">Cosmic AI V34.2</h1>
         <div id="g_id_onload" data-client_id="962541317340-h2tef7ghacll2okk8latem18qbsrs3hd.apps.googleusercontent.com" data-callback="unlockNow"></div>
         <div class="g_id_signin" data-type="standard"></div>
     </div>
@@ -308,14 +309,14 @@
 
                 <div class="settings-btn" onclick="document.getElementById('file-upload').click()">Change Avatar</div>
                 <div class="settings-btn" onclick="window.promptChangeName()">Change Name</div>
-                
-                <a href="mailto:feedback@cosmicai.com?subject=Cosmic AI V34.1 Feedback" target="_blank" class="settings-btn" style="font-size: 11px; background: var(--meta-gradient); color: #fff; border: none; font-weight: 700;">💬 Send Feedback</a>
+
+                <a href="https://www.youtube.com/@CosmicBloxEditz/posts" target="_blank" class="settings-btn" style="font-size: 11px; background: var(--meta-gradient); color: #fff; border: none; font-weight: 700;">💬 Send Feedback</a>
                 <a href="https://github.com/Cosmic785/my-local-ai" target="_blank" class="settings-btn" style="font-size: 11px; background: transparent; border-style: dashed;">🐛 Report a Bug</a>
-                
+
                 <input type="file" id="file-upload" style="display:none" accept="image/*">
                 <button class="settings-btn" onclick="window.logout()" style="background:#800; color:white; border:none; margin-top:10px;">Logout</button>
             </div>
-            
+
             <div id="user-profile-trigger" onclick="window.toggleSettings()" style="padding:10px; display:flex; align-items:center; gap:10px; cursor:pointer;">
                 <div id="user-profile-img" style="width:28px; height:28px; border-radius:50%; background: var(--meta-gradient); background-size:cover;"></div>
                 <span id="display-name" style="font-size:13px; font-weight: 800;">User</span>
@@ -417,7 +418,7 @@
 
 <script type="module">
     import { CreateMLCEngine } from "https://esm.run/@mlc-ai/web-llm";
-    
+
     let engine, isGenerating = false, currentId = null;
     let chats = JSON.parse(localStorage.getItem('my_ai_chats')) || {};
 
@@ -425,8 +426,8 @@
         refreshSidebar();
         try {
             engine = await CreateMLCEngine(localStorage.getItem('cosmic_model') || "Llama-3.2-1B-Instruct-q4f16_1-MLC", {
-                initProgressCallback: (p) => { 
-                    document.getElementById("status").innerText = `CORE: ${Math.round(p.progress * 100)}%`; 
+                initProgressCallback: (p) => {
+                    document.getElementById("status").innerText = `CORE: ${Math.round(p.progress * 100)}%`;
                 }
             });
             document.getElementById("status").innerText = "COSMIC CORE ONLINE";
@@ -442,8 +443,8 @@
         document.getElementById("status").innerText = `LOADING MODEL...`;
         document.getElementById("userInput").disabled = true;
         engine = await CreateMLCEngine(modelId, {
-            initProgressCallback: (p) => { 
-                document.getElementById("status").innerText = `CORE: ${Math.round(p.progress * 100)}%`; 
+            initProgressCallback: (p) => {
+                document.getElementById("status").innerText = `CORE: ${Math.round(p.progress * 100)}%`;
             }
         });
         document.getElementById("status").innerText = "COSMIC CORE ONLINE";
@@ -458,13 +459,13 @@
         contextMenuChatId = id;
         const menu = document.getElementById('context-menu');
         menu.style.display = 'block';
-        
+
         // Keep menu on screen
         let x = e.pageX, y = e.pageY;
         const menuWidth = 140, menuHeight = 120;
         if (x + menuWidth > window.innerWidth) x = window.innerWidth - menuWidth - 5;
         if (y + menuHeight > window.innerHeight) y = window.innerHeight - menuHeight - 5;
-        
+
         menu.style.left = x + 'px';
         menu.style.top = y + 'px';
     };
@@ -521,8 +522,8 @@
         try {
             const chunks = await engine.chat.completions.create({
                 messages: [
-                    { role: "system", content: "You are Cosmic AI V34.1." },
-                  ...chats[targetId].history
+                    { role: "system", content: "You are Cosmic AI V34.2." },
+                 ...chats[targetId].history
                 ],
                 stream: true
             });
@@ -535,12 +536,12 @@
                     document.getElementById('chat-window').scrollTop = document.getElementById('chat-window').scrollHeight;
                 }
             }
-            
+
             chats[targetId].history.push({ role: "assistant", content: fullStr });
             save();
-        } finally { 
-            isGenerating = false; 
-            window.render(); 
+        } finally {
+            isGenerating = false;
+            window.render();
         }
     };
 
@@ -593,7 +594,7 @@
         const style = avatarUrl? `style="background-image: url('${avatarUrl}')"` : '';
         row.innerHTML = `<div class="avatar ${type === 'ai'? 'ai-avatar' : ''}" ${style}></div><div class="content"></div>`;
         const c = row.querySelector(".content");
-        if (type === 'ai') { c.innerHTML = marked.parse(text || ''); } 
+        if (type === 'ai') { c.innerHTML = marked.parse(text || ''); }
         else { c.innerText = text; }
         document.getElementById("chat-window").appendChild(row);
         return row;
