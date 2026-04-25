@@ -15,8 +15,8 @@
 
 ## 📝 Last Edited By
 
-**@Userccv** — 2026-04-20
-> Updated V34.1 credits and features per Cosmic's request
+**@Userccv** — 2026-04-24
+> Updated V34.1.1 with Meta AI styling, feedback button, and stability fixes
 
 ---
 
@@ -35,10 +35,20 @@
 - **📚 Multiple Models** — Switch between Llama-3, Phi-3, Gemma, and more in Settings
 - **⬇️ Model Selector** — Choose models with live download progress
 - **⚙️ Custom System Prompts** — Control AI behavior and personality
+- **💬 Send Feedback** — Meta-gradient button in Settings links to YouTube
+- **🎨 Meta AI Theme** — Inter font, dark navy `#0c0c0f`, purple-blue gradient
 - **🖼️ Custom Avatars** — Upload your profile picture
 - **✏️ Change Name** — Update your display name anytime
 - **🌓 Dark/Light Theme** — Rebuilt from scratch in V34.1. Both themes stable
 - **🚫 No Sign-up** — Just open and use
+
+## 🆕 What’s New in V34.1.1
+
+- **💬 Send Feedback** — Added Meta-gradient button in Settings that links to YouTube
+- **🎨 Meta AI Styling** — New Inter font, dark navy `#0c0c0f` background, `--meta-gradient` purple-blue theme
+- **🌈 Gradient UI** — Send button + New Chat button now use Meta gradient
+- **🖱️ Context Menu Fixes** — Bounds checking so menus never go off-screen + auto-close on scroll
+- **🛡️ Null Safety** — Fixed `chats[a]?.pinned` to prevent crashes on old saves
 
 ## 🆕 What’s New in V34.1
 
@@ -61,6 +71,9 @@
 - [x] ☀️ Light theme rebuild — V34.1
 - [x] ⬇️ Model selector with download progress — V34.1
 - [x] ⚙️ Settings to change AI models — V34.1
+- [x] 💬 Feedback button in Settings — V34.1.1
+- [x] 🎨 Meta AI theme update — V34.1.1
+- [x] 🛡️ Stability fixes for old saves — V34.1.1
 - [ ] 💾 Chat history export/import
 - [ ] 🎤 Voice input/output
 - [ ] 📱 PWA install for mobile
@@ -132,6 +145,7 @@ MIT License — see [LICENSE](LICENSE) file.
 > :test_tube: Ran 100+ test chats to fix dumb replies and hallucinations
 > :arrow_down: Added model selector with download progress in V34.1
 > :gear: Added settings to change AI models in V34.1
+> :art: Led Meta AI theme update in V34.1.1 — Inter font, `#0c0c0f`, gradients
 > :paintbrush: Designs UI/UX, layouts, user experience
 > :frame_photo: Co-dev on V34.1 interface rebuild
 > :sunny: Rebuilt Light Theme — spacing, colors, mobile
