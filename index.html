@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -87,7 +88,7 @@
             border-top: 1px solid var(--border);
         }
 
-        .settings-row {
+       .settings-row {
             margin-bottom: 10px;
             display: flex;
             flex-direction: column;
@@ -95,7 +96,7 @@
             font-size: 12px;
         }
 
-        .settings-select {
+       .settings-select {
             background: var(--bg);
             border: 1px solid var(--border);
             color: var(--text);
@@ -105,7 +106,7 @@
             width: 100%;
         }
 
-        .settings-btn {
+       .settings-btn {
             background: var(--user-bubble);
             color: var(--text);
             border: 1px solid var(--border);
@@ -122,7 +123,7 @@
             text-decoration: none;
         }
 
-        .settings-btn:hover {
+       .settings-btn:hover {
             background: var(--menu-hover);
             border-color: var(--accent);
         }
@@ -130,7 +131,7 @@
         /* SIDEBAR CHATS */
         #new-chat-container { padding: 10px; }
 
-        .btn-new-chat {
+       .btn-new-chat {
             width: 100%;
             background: var(--user-bubble);
             color: var(--text);
@@ -151,7 +152,7 @@
             gap: 4px;
         }
 
-        .history-item {
+       .history-item {
             padding: 8px 10px;
             border-radius: 6px;
             font-size: 13px;
@@ -162,18 +163,45 @@
             transition: 0.2s;
         }
 
-        .history-item:hover { background: var(--menu-hover); }
-        .history-item.active { background: var(--user-bubble); border-left: 2px solid var(--accent); }
+       .history-item:hover { background: var(--menu-hover); }
+       .history-item.active { background: var(--user-bubble); border-left: 2px solid var(--accent); }
 
-        .history-actions { display: none; gap: 6px; }
-        .history-item:hover { background: var(--menu-hover); }
-        .history-item.active { background: var(--user-bubble); border-left: 2px solid var(--accent); }
+       .history-actions { display: none; gap: 6px; }
+       .history-item:hover.history-actions { display: flex; }
 
-        .history-actions { display: none; gap: 6px; }
-        .history-item:hover .history-actions { display: flex; }
+       .action-icon { opacity: 0.6; cursor: pointer; font-size: 14px; }
+       .action-icon:hover { opacity: 1; color: var(--accent); }
 
-        .action-icon { opacity: 0.6; cursor: pointer; font-size: 14px; }
-        .action-icon:hover { opacity: 1; color: var(--accent); }
+       .context-menu {
+            position: fixed;
+            background: var(--settings-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 4px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+            z-index: 9999;
+            display: none;
+            min-width: 140px;
+        }
+       .context-menu-item {
+            padding: 8px 14px;
+            font-size: 13px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+       .context-menu-item:hover {
+            background: var(--menu-hover);
+        }
+       .context-menu-item.delete {
+            color: #ff4d4d;
+        }
+       .context-menu-divider {
+            height: 1px;
+            background: var(--border);
+            margin: 4px 0;
+        }
 
         /* CHAT WINDOW */
         #main { flex: 1; display: none; flex-direction: column; }
@@ -187,10 +215,10 @@
             gap: 15px;
         }
 
-        .row { display: flex; gap: 12px; width: 100%; }
-        .row.user { flex-direction: row-reverse; }
+       .row { display: flex; gap: 12px; width: 100%; }
+       .row.user { flex-direction: row-reverse; }
 
-        .avatar {
+       .avatar {
             width: 32px; height: 32px;
             border-radius: 50%;
             flex-shrink: 0;
@@ -199,9 +227,9 @@
             border: 1px solid var(--border);
         }
 
-        .ai-avatar { background-image: url('https://www.meta.ai/images/cot_logo_static/orbit.png'); }
+       .ai-avatar { background-image: url('https://www.meta.ai/images/cot_logo_static/orbit.png'); }
 
-        .content {
+       .content {
             max-width: 85%;
             padding: 10px 14px;
             border-radius: 12px;
@@ -209,10 +237,10 @@
             line-height: 1.4;
         }
 
-        .user .content { background: var(--user-bubble); }
+       .user.content { background: var(--user-bubble); }
 
         #input-container { padding: 15px 10%; background: var(--bg); }
-        .input-box {
+       .input-box {
             background: var(--input-bg);
             border-radius: 20px;
             padding: 8px 18px;
@@ -292,15 +320,28 @@
         </div>
     </div>
 
+    <div id="context-menu" class="context-menu">
+        <div class="context-menu-item" onclick="window.pinChat()">
+            <span>📌</span> Pin
+        </div>
+        <div class="context-menu-item" onclick="window.renameChatFromMenu()">
+            <span>✏️</span> Rename
+        </div>
+        <div class="context-menu-divider"></div>
+        <div class="context-menu-item delete" onclick="window.deleteChatFromMenu()">
+            <span>🗑️</span> Delete
+        </div>
+    </div>
+
 <script>
     window.toggleSettings = () => {
         const p = document.getElementById('settings-panel');
-        p.style.display = (p.style.display === 'block') ? 'none' : 'block';
+        p.style.display = (p.style.display === 'block')? 'none' : 'block';
     };
 
     window.promptChangeName = () => {
         const newName = prompt("Enter your new name:", document.getElementById('display-name').innerText);
-        if (newName && newName.trim() !== "") {
+        if (newName && newName.trim()!== "") {
             window.updateUsername(newName.trim());
         }
     };
@@ -311,7 +352,7 @@
     };
 
     window.updateTheme = (t) => {
-        document.getElementById('app-body').className = (t !== 'default') ? t : '';
+        document.getElementById('app-body').className = (t!== 'default')? t : '';
         localStorage.setItem('cosmic_theme_v34', t);
     };
 
@@ -390,6 +431,52 @@
         localStorage.setItem('cosmic_model', modelId);
     };
 
+    let contextMenuChatId = null;
+
+    window.showContextMenu = (e, id) => {
+        e.stopPropagation();
+        contextMenuChatId = id;
+        const menu = document.getElementById('context-menu');
+        menu.style.display = 'block';
+        
+        // Keep menu on screen
+        let x = e.pageX, y = e.pageY;
+        const menuWidth = 140, menuHeight = 120;
+        if (x + menuWidth > window.innerWidth) x = window.innerWidth - menuWidth - 5;
+        if (y + menuHeight > window.innerHeight) y = window.innerHeight - menuHeight - 5;
+        
+        menu.style.left = x + 'px';
+        menu.style.top = y + 'px';
+    };
+
+    window.pinChat = () => {
+        if(!contextMenuChatId ||!chats[contextMenuChatId]) return;
+        chats[contextMenuChatId].pinned =!chats[contextMenuChatId].pinned;
+        save();
+        refreshSidebar();
+        hideContextMenu();
+    };
+
+    window.renameChatFromMenu = () => {
+        if(!contextMenuChatId) return;
+        window.renameChat(contextMenuChatId, {stopPropagation:()=>{}});
+        hideContextMenu();
+    };
+
+    window.deleteChatFromMenu = () => {
+        if(!contextMenuChatId) return;
+        window.deleteChat(contextMenuChatId, {stopPropagation:()=>{}});
+        hideContextMenu();
+    };
+
+    function hideContextMenu() {
+        document.getElementById('context-menu').style.display = 'none';
+        contextMenuChatId = null;
+    }
+
+    document.addEventListener('click', hideContextMenu);
+    document.getElementById('history-list').addEventListener('scroll', hideContextMenu);
+
     window.ask = async () => {
         const input = document.getElementById("userInput");
         let val = input.value.trim();
@@ -415,7 +502,7 @@
             const chunks = await engine.chat.completions.create({
                 messages: [
                     { role: "system", content: "You are Cosmic AI V34.1." },
-                    ...chats[targetId].history
+                   ...chats[targetId].history
                 ],
                 stream: true
             });
@@ -452,7 +539,7 @@
     window.renameChat = (id, e) => {
         e.stopPropagation();
         const n = prompt("Rename this chat:", chats[id].title);
-        if (n && n.trim() !== "") {
+        if (n && n.trim()!== "") {
             chats[id].title = n.trim();
             save();
             refreshSidebar();
@@ -473,7 +560,7 @@
         const win = document.getElementById("chat-window");
         win.innerHTML = "";
         if (currentId && chats[currentId]) {
-            chats[currentId].history.forEach(m => addRowUI(m.content, m.role === 'user' ? 'user' : 'ai'));
+            chats[currentId].history.forEach(m => addRowUI(m.content, m.role === 'user'? 'user' : 'ai'));
         }
         win.scrollTop = win.scrollHeight;
         refreshSidebar();
@@ -482,8 +569,8 @@
     function addRowUI(text, type) {
         const row = document.createElement("div");
         row.className = `row ${type}`;
-        const avatarUrl = (type === 'ai') ? 'https://www.meta.ai/images/cot_logo_static/orbit.png' : (localStorage.getItem('custom_user_pic') || '');
-        const style = avatarUrl ? `style="background-image: url('${avatarUrl}')"` : '';
+        const avatarUrl = (type === 'ai')? 'https://www.meta.ai/images/cot_logo_static/orbit.png' : (localStorage.getItem('custom_user_pic') || '');
+        const style = avatarUrl? `style="background-image: url('${avatarUrl}')"` : '';
         row.innerHTML = `<div class="avatar" ${style}></div><div class="content"></div>`;
         const c = row.querySelector(".content");
         if (type === 'ai') { c.innerHTML = marked.parse(text || ''); } 
@@ -497,16 +584,19 @@
     function refreshSidebar() {
         const list = document.getElementById("history-list");
         list.innerHTML = "";
-        Object.keys(chats).sort((a,b) => b-a).forEach(id => {
+        Object.keys(chats).sort((a,b) => {
+            if(chats[a]?.pinned &&!chats[b]?.pinned) return -1;
+            if(!chats[a]?.pinned && chats[b]?.pinned) return 1;
+            return b-a;
+        }).forEach(id => {
             const item = document.createElement("div");
-            item.className = `history-item ${id === currentId ? 'active' : ''}`;
+            item.className = `history-item ${id === currentId? 'active' : ''}`;
             item.onclick = () => window.selectChat(id);
             item.innerHTML = `
-                <span style="flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">${chats[id].title}</span>
-                <div class="history-actions">
-                    <span class="action-icon" onclick="window.renameChat('${id}', event)">✏️</span>
-                    <span class="action-icon" onclick="window.deleteChat('${id}', event)">🗑️</span>
-                </div>
+                <span style="flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                    ${chats[id].pinned? '📌 ' : ''}${chats[id].title}
+                </span>
+                <span class="action-icon" onclick="window.showContextMenu(event, '${id}')">⋯</span>
             `;
             list.appendChild(item);
         });
